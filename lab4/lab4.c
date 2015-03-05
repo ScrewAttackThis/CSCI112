@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 //MENU enum definition
-typedef MENU enum {
+typedef enum MENU {
 	SINE,
 	COSINE,
 	TANGENT,
