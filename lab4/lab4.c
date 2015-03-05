@@ -33,8 +33,8 @@ void userMenu()
 	menu_t input;
 	do
 	{
-		print("Please choose an option: (0) Sine (1) Cosine (2) Tangent (3) QUIT\n");
-		print("Enter your choice > ");
+		printf("Please choose an option: (0) Sine (1) Cosine (2) Tangent (3) QUIT\n");
+		printf("Enter your choice > ");
 
 		scanf("%d",&input);
 	}while(!is_valid(input));
