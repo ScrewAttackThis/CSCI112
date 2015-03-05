@@ -38,7 +38,7 @@ void userMenu()
 		printf("Enter your choice > ");
 
 		scanf("%d",&input);
-	}while(!input.QUIT);
+	}while(!(input == QUIT));
 }
 
 bool is_valid(menu_t input)
