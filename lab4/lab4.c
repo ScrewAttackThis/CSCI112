@@ -4,10 +4,10 @@
 
 //MENU enum definition
 typedef MENU enum {
-	sine,
-	cosine,
-	tangent,
-	quit
+	SINE,
+	COSINE,
+	TANGENT,
+	QUIT
 } menu_t;
 
 /*
