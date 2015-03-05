@@ -25,6 +25,7 @@ double computeTan(double angle);
 
 int main(void)
 {
+	userMenu();
 }
 
 void userMenu()
