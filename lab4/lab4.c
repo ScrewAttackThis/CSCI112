@@ -17,6 +17,11 @@ typedef enum MENU {
  */
 
 //Function prototypes
+void userMenu();
+bool is_valid(menu_t input);
+double computeSin(double angle);
+double computeCos(double angle);
+double computeTan(double angle);
 
 int main(void)
 {
@@ -37,16 +42,20 @@ void userMenu()
 
 bool is_valid(menu_t input)
 {
+	return true;
 }
 
 double computeSin(double angle)
 {
+	return 0.0;
 }
 
 double computeCos(double angle)
 {
+	return 0.0;
 }
 
 double computeTan(double angle)
 {
+	return 0.0;
 }
