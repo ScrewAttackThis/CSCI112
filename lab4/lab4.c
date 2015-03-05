@@ -1,13 +1,15 @@
-include <stdio.h>
-include <math.h>
+#include <stdio.h>
+#include <math.h>
+#include <stdbool.h>
 
-typedef enum {
+//MENU enum definition
+typedef MENU enum {
 	sine,
 	cosine,
 	tangent,
 	quit
-} MENU;
- 
+} menu_t;
+
 /*
  * Michael Shihrer
  * Lab 4, CSCI 112
@@ -22,8 +24,8 @@ int main(void)
 
 void userMenu()
 {
-	MENU input;
-	//Menu enum
+	//Menu variable
+	menu_t input;
 	do
 	{
 		print("Please choose an option: (0) Sine (1) Cosine (2) Tangent (3) QUIT\n");
@@ -33,7 +35,7 @@ void userMenu()
 	}while(!is_valid(input));
 }
 
-bool is_valid(MENU input)
+bool is_valid(menu_t input)
 {
 }
 
