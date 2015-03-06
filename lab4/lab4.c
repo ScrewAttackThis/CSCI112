@@ -68,8 +68,8 @@ void computeSin()
 	for(int i = 0; i <= LOOP_LIMIT; i+=15)
 	{
 		double result = 0.0;
-		result = sin(degreeToRadian(i));
-		printf("\tsin(%d) = %.4f\n", i, radianToDegree(result));
+		result = radianToDegree(sin(degreeToRadian(i)));
+		printf("\tsin(%d) = %.4f\n", i, result);
 	}
 }
 
