@@ -67,7 +67,7 @@ void computeSin(double angle)
 {
 	double result = 0.0;
 	result = sin(degreeToRadian(angle));
-	printf("\tsin(%d) = %.4f\n",angle, radianToDegree(result));
+	printf("\tsin(%d) = %.4f\n", angle, radianToDegree(result));
 }
 
 void computeCos(double angle)
@@ -97,10 +97,10 @@ void computeValues(double (*computeFunction)(double))
 
 double degreeToRadian(double angle)
 {
-	return PI * angle/180;
+	return (PI * angle)/180.0;
 }
 
 double radianToDegree(double angle)
 {
-	return angle*180/PI;
+	return (angle * 180.0)/PI;
 }
