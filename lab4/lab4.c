@@ -43,6 +43,7 @@ void userMenu()
 
 bool is_valid(menu_t input)
 {
+	printf("%d", input);
 	return true;
 }
 
