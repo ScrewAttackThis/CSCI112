@@ -68,9 +68,7 @@ void computeSin()
 {
 	for(int i = 0; i <= LOOP_LIMIT; i+=15)
 	{
-		double result = 0.0;
-		result = sin(degreeToRadian(i));
-		printf("\tsin(%d) = %.4f\n", i, result);
+		printf("\tsin(%d) = %.4f\n", i, sin(degreeToRadian(i)));
 	}
 }
 
@@ -78,9 +76,7 @@ void computeCos()
 {
 	for(int i = 0; i <= LOOP_LIMIT; i+=15)
 	{
-		double result = 0.0;
-		result = cos(degreeToRadian(i));
-		printf("\tcos(%d) = %.4f\n", i, result);
+		printf("\tcos(%d) = %.4f\n", i, cos(degreeToRadian(i)));
 	}
 }
 
@@ -90,13 +86,11 @@ void computeTan()
 	{
 		if((i == 90) || (i == 270))
 		{
-			printf("\ttan(%d) is UNDEFINED\n", angle);
+			printf("\ttan(%d) is UNDEFINED\n", i);
 		}
 		else
 		{
-			double result = 0.0;
-			result = tan(degreeToRadian(i));
-			printf("\ttan(%d) = %.4f\n", i, result);
+			printf("\ttan(%d) = %.4f\n", i, tan(degreeToRadian(i)));
 		}
 	}
 }
