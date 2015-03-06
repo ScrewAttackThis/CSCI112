@@ -10,7 +10,7 @@
 
 //Constants
 #define PI 3.14159
-#define LOOP_LIMIT 360
+#define LOOP_LIMIT 90
 
 //MENU enum definition
 typedef enum MENU {
