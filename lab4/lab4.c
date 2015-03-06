@@ -63,19 +63,19 @@ void userMenu()
 	}while(!(input == QUIT));
 }
 
-void computeSin(double angle)
+void computeSin(int angle)
 {
 	double result = 0.0;
 	result = sin(degreeToRadian(angle));
 	printf("\tsin(%d) = %.4f\n", angle, radianToDegree(result));
 }
 
-void computeCos(double angle)
+void computeCos(int angle)
 {
 	printf("\tCompute cosine\n");
 }
 
-void computeTan(double angle)
+void computeTan(int angle)
 {
 	if(angle == 90 || angle == 270)
 	{
