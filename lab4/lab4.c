@@ -23,7 +23,7 @@ typedef enum MENU {
 
 //Function prototypes
 void userMenu();
-void computeSin(int angle);
+void computeSin();
 void computeCos(int angle);
 void computeTan(int angle);
 void computeValues();
@@ -48,7 +48,7 @@ void userMenu()
 		switch(input)
 		{
 			case SINE:
-				computeValues(computeSin);
+				computeSin();
 				break;
 			case	COSINE:
 				computeValues(computeCos);
@@ -63,11 +63,14 @@ void userMenu()
 	}while(!(input == QUIT));
 }
 
-void computeSin(int angle)
+void computeSin()
 {
-	double result = 0.0;
-	result = sin(degreeToRadian(angle));
-	printf("\tsin(%d) = %.4f\n", angle, radianToDegree(result));
+	for(int i = 0; i <= LOOP_LIMIT; i+=15)
+	{
+		double result = 0.0;
+		result = sin(degreeToRadian(i));
+		printf("\tsin(%d) = %.4f\n", i, radianToDegree(result));
+	}
 }
 
 void computeCos(int angle)
