@@ -36,8 +36,21 @@ void userMenu()
 	{
 		printf("Please choose an option: (0) Sine (1) Cosine (2) Tangent (3) QUIT\n");
 		printf("Enter your choice > ");
-
 		scanf("%d",&input);
+
+		switch(input)
+		{
+			case SINE:
+				break;
+			case	COSINE:
+				break;
+			case TANGENT:
+				break;
+			case QUIT:
+				break;
+			default:
+				printf("%d is an invalid option.  Please try again.", input);
+		}
 	}while(!(input == QUIT));
 }
 
