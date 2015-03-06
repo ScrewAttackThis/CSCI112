@@ -76,7 +76,7 @@ void computeCos(int angle)
 	for(int i = 0; i <= LOOP_LIMIT; i+=15)
 	{
 		double result = 0.0;
-		result = sin(degreeToRadian(i));
+		result = cos(degreeToRadian(i));
 		printf("\tcos(%d) = %.4f\n", i, result);
 	}
 }
@@ -85,7 +85,7 @@ void computeTan(int angle)
 {
 	for(int i = 0; i <= LOOP_LIMIT; i+=15)
 	{
-		if(angle == 90 || angle == 270)
+		if((angle == 90) || (angle == 270))
 		{
 			printf("\ttan(%d) is UNDEFINED\n", angle);
 		}
