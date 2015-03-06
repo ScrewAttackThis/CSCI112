@@ -23,9 +23,9 @@ typedef enum MENU {
 
 //Function prototypes
 void userMenu();
-void computeSin(double angle);
-void computeCos(double angle);
-void computeTan(double angle);
+void computeSin(int angle);
+void computeCos(int angle);
+void computeTan(int angle);
 void computeValues();
 double degreeToRadian(double angle);
 double radianToDegree(double angle);
