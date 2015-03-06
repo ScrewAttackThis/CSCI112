@@ -102,5 +102,5 @@ double degreeToRadian(double angle)
 
 double radianToDegree(double angle)
 {
-	return angle*180/PI
+	return angle*180/PI;
 }
