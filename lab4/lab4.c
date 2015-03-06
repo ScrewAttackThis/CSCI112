@@ -54,6 +54,9 @@ void userMenu()
 			case TANGENT:
 				computeTan();
 				break;
+			case QUIT:
+				printf("You chose QUIT.  Thank you, come again!");
+				break;
 			default:
 				printf("%d is an invalid option.  Please try again.\n", input);
 				break;
@@ -71,7 +74,7 @@ void computeSin()
 	}
 }
 
-void computeCos(int angle)
+void computeCos()
 {
 	for(int i = 0; i <= LOOP_LIMIT; i+=15)
 	{
@@ -81,11 +84,11 @@ void computeCos(int angle)
 	}
 }
 
-void computeTan(int angle)
+void computeTan()
 {
 	for(int i = 0; i <= LOOP_LIMIT; i+=15)
 	{
-		if((angle == 90) || (angle == 270))
+		if((i == 90) || (i == 270))
 		{
 			printf("\ttan(%d) is UNDEFINED\n", angle);
 		}
