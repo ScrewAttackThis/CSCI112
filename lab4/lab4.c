@@ -66,13 +66,13 @@ void userMenu()
 
 double computeSin(double angle)
 {
-	printf("Compute sine");
+	printf("Compute sine\n");
 	return 0.0;
 }
 
 double computeCos(double angle)
 {
-	printf("Compute cosine");
+	printf("Compute cosine\n");
 	return 0.0;
 }
 
@@ -80,11 +80,11 @@ double computeTan(double angle)
 {
 	if(angle == 90 || angle == 270)
 	{
-		printf("UNDEFINED");
+		printf("UNDEFINED\n");
 	}
 	else
 	{
-		printf("Compute tangent");
+		printf("Compute tangent\n");
 	}
 	return 0.0;
 }
