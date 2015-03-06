@@ -69,7 +69,7 @@ void computeSin()
 	{
 		double result = 0.0;
 		result = sin(degreeToRadian(i));
-		result = radianToDegree(result);
+		//result = radianToDegree(result);
 		printf("\tsin(%d) = %.4f\n", i, result);
 	}
 }
