@@ -39,7 +39,7 @@ void userMenu()
 	menu_t input;
 	do
 	{
-		printf("Please choose an option: (0) Sine (1) Cosine (2) Tangent (3) QUIT\n");
+		printf("\nPlease choose an option: (0) Sine (1) Cosine (2) Tangent (3) QUIT\n");
 		printf("Enter your choice > ");
 		scanf("%d",&input);
 
@@ -55,7 +55,7 @@ void userMenu()
 				computeTan();
 				break;
 			case QUIT:
-				printf("You chose QUIT.  Thank you, come again!");
+				printf("You chose QUIT.  Thank you, come again!\n");
 				break;
 			default:
 				printf("%d is an invalid option.  Please try again.\n", input);
