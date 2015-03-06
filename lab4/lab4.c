@@ -73,7 +73,6 @@ void computeSin(double angle)
 void computeCos(double angle)
 {
 	printf("\tCompute cosine\n");
-	return 0.0;
 }
 
 void computeTan(double angle)
@@ -86,7 +85,6 @@ void computeTan(double angle)
 	{
 		printf("\tCompute tangent\n");
 	}
-	return 0.0;
 }
 
 void computeValues(double (*computeFunction)(double))
