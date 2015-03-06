@@ -24,11 +24,9 @@ typedef enum MENU {
 //Function prototypes
 void userMenu();
 void computeSin();
-void computeCos(int angle);
-void computeTan(int angle);
-void computeValues();
+void computeCos();
+void computeTan();
 double degreeToRadian(double angle);
-double radianToDegree(double angle);
 
 int main(void)
 {
@@ -51,10 +49,10 @@ void userMenu()
 				computeSin();
 				break;
 			case	COSINE:
-				computeValues(computeCos);
+				computeCos();
 				break;
 			case TANGENT:
-				computeValues(computeTan);
+				computeTan();
 				break;
 			default:
 				printf("%d is an invalid option.  Please try again.\n", input);
@@ -69,42 +67,38 @@ void computeSin()
 	{
 		double result = 0.0;
 		result = sin(degreeToRadian(i));
-		//result = radianToDegree(result);
 		printf("\tsin(%d) = %.4f\n", i, result);
 	}
 }
 
 void computeCos(int angle)
 {
-	printf("\tCompute cosine\n");
+	for(int i = 0; i <= LOOP_LIMIT; i+=15)
+	{
+		double result = 0.0;
+		result = sin(degreeToRadian(i));
+		printf("\tcos(%d) = %.4f\n", i, result);
+	}
 }
 
 void computeTan(int angle)
 {
-	if(angle == 90 || angle == 270)
-	{
-		printf("\ttan(%d) is UNDEFINED\n", angle);
-	}
-	else
-	{
-		printf("\tCompute tangent\n");
-	}
-}
-
-void computeValues(double (*computeFunction)(double))
-{
 	for(int i = 0; i <= LOOP_LIMIT; i+=15)
 	{
-		(*computeFunction)(i);
+		if(angle == 90 || angle == 270)
+		{
+			printf("\ttan(%d) is UNDEFINED\n", angle);
+		}
+		else
+		{
+			double result = 0.0;
+			result = tan(degreeToRadian(i));
+			printf("\ttan(%d) = %.4f\n", i, result);
+		}
 	}
 }
 
 double degreeToRadian(double angle)
 {
 	return PI * angle/180.0;
-}
-
-double radianToDegree(double angle)
-{
-	return angle * 180.0/PI;
 }
