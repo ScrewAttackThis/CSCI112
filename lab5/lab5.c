@@ -69,7 +69,7 @@ int user_menu()
   {
 
     //print menu
-  	printf("\nChoose a motion equation 1-4 or choose 5 to QUIT > \n");
+  	printf("\nChoose a motion equation 1-4 or choose 5 to QUIT > ");
     //Scan user input
   	scanf("%d",&input);
 
