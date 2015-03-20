@@ -53,7 +53,7 @@ int main(void)
 
     //Print out formatted result
     printf("Your result is %.4f.\n\n", result);
-  }while(input != 5);
+  }while(validInput != 5);
 
   return 0;
 }
