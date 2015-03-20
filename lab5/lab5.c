@@ -52,7 +52,7 @@ int main(void)
         equation4(&result);
         break;
       case 5: //exit program
-        printf("Thank you for using the MOTION EQUATION CALCULATOR . Goodbye .\n");
+        printf("Thank you for using the MOTION EQUATION CALCULATOR.  Goodbye.\n");
         return 0;
       break;
     }
@@ -131,7 +131,7 @@ void equation4(float *result)
   float t = get_time();
 
   //Calculate final position equation
-  * result = x0 + .5 * (vf - v0) * t;
+  * result = x0 + .5 * (vf + v0) * t;
 }
 
 // Prompts user for x0
