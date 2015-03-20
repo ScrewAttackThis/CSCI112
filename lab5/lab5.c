@@ -6,7 +6,6 @@
 
 #include <stdio.h>
 #include <math.h>
-#include <stdbool.h>
 
 // List of all function declarations ( prototypes )
 // Displays user menu , reads input , and validates the input
@@ -63,11 +62,11 @@ int main(void)
 
 int user_menu()
 {
-  bool valid = false;
-  do
+	//input variable
+	int input;
+
+  do //Keep asking for option until valid input is entered
   {
-  	//input variable
-  	int input;
 
     //print menu
   	printf("\nChoose a motion equation 1-4 or choose 5 to QUIT > \n");
@@ -79,11 +78,7 @@ int user_menu()
     {
       printf("Invalid option. Please try again.");
     }
-    else
-    {
-      valid = true;
-    }
-  }while(valid == true);
+  }while(input < 1 || input > 5);
 
   return input;
 }
