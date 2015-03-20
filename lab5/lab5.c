@@ -10,11 +10,13 @@
 // List of all function declarations ( prototypes )
 // Displays user menu , reads input , and validates the input
 int user_menu ();
+
 // Equation functions are pass by reference
 void equation1(float *); // Calculate motion equation 1
 void equation2(float *); // Calculate motion equation 2
 void equation3(float *); // Calculate motion equation 3
 void equation4(float *); // Calculate motion equation 4
+
 // User input functions return a value from user
 float get_position_initial(void); // Prompts user for x0
 float get_position_final(void); // Prompts user for xf
@@ -27,6 +29,9 @@ int main(void)
 {
   //Input variable
   int validInput;
+
+  // Print welcome message
+  printf("Welcome to the MOTION EQUATION CALCULATOR\n\n");
 
   do
   {
