@@ -61,7 +61,7 @@ int main(void)
   return 0;
 }
 
-int userMenu()
+int user_menu()
 {
 	//input variable
 	int input;
