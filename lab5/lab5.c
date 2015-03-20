@@ -127,6 +127,6 @@ float get_acceleration ()
 // Prompts user for t
 float get_time ()
 {
-  printf("\tEnter time > ")
+  printf("\tEnter time > ");
   return scanf("%f");
 }
