@@ -43,6 +43,7 @@ int main(void)
         equation1(&result);
         break;
       case	2:
+        equation2(&result);
         break;
       case 3:
         break;
