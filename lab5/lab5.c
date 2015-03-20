@@ -89,7 +89,7 @@ void equation1(float *result)
   float a = get_acceleration(); //Get acceleration
   float t = get_time(); //Get time
 
-  * result = 1.1;
+  * result = v0 + (a*t);
 }
 
 // Prompts user for x0
