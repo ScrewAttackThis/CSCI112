@@ -134,6 +134,6 @@ float get_time ()
 {
   float t;
   printf("\tEnter time > ");
-  scanf("%f", &t)
+  scanf("%f", &t);
   return t;
 }
