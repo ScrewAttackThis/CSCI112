@@ -39,20 +39,19 @@ int main(void)
     //Handle menu choices
     switch(validInput)
     {
-      case 1:
+      case 1: //Call equation1
         equation1(&result);
         break;
-      case	2:
+      case	2: //Call equation2
         equation2(&result);
         break;
-      case 3:
+      case 3: //Call equation3
         equation3(&result);
         break;
-      case 4:
+      case 4: //Call equation4
         equation4(&result);
         break;
-      case 5:
-        //exit program
+      case 5: //exit program
         printf("Thank you for using the MOTION EQUATION CALCULATOR . Goodbye .\n");
         return 0;
       break;
@@ -120,7 +119,7 @@ void equation3(float *result)
   float x0 = get_position_initial(); //Get initial position
 
   //Calculate final velocity equation
-  * result = sqrt(v0 * v0 + 2 * a(xf-x0));
+  * result = sqrt(v0 * v0 + 2 * a * (xf-x0));
 }
 
 //Calculates final position using x0, vf, v0, t
@@ -132,7 +131,7 @@ void equation4(float *result)
   float t = get_time();
 
   //Calculate final position equation
-  * result = x0 + .5(vf - v0) * t;
+  * result = x0 + .5 * (vf - v0) * t;
 }
 
 // Prompts user for x0
