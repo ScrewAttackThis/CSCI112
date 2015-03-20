@@ -12,17 +12,17 @@
 // Displays user menu , reads input , and validates the input
 int user_menu ();
 // Equation functions are pass by reference
-void equation1 ( float *); // Calculate motion equation 1
-void equation2 ( float *); // Calculate motion equation 2
-void equation3 ( float *); // Calculate motion equation 3
-void equation4 ( float *); // Calculate motion equation 4
+void equation1(float *); // Calculate motion equation 1
+void equation2(float *); // Calculate motion equation 2
+void equation3(float *); // Calculate motion equation 3
+void equation4(float *); // Calculate motion equation 4
 // User input functions return a value from user
-float get_position_initial ( void ); // Prompts user for x0
-float get_position_final ( void ); // Prompts user for xf
-float get_velocity_initial ( void ); // Prompts user for v0
-float get_velocity_final ( void ); // Prompts user for vf
-float get_acceleration ( void ); // Prompts user for a
-float get_time ( void ); // Prompts user for t
+float get_position_initial(void); // Prompts user for x0
+float get_position_final(void); // Prompts user for xf
+float get_velocity_initial(void); // Prompts user for v0
+float get_velocity_final(void); // Prompts user for vf
+float get_acceleration(void); // Prompts user for a
+float get_time(void); // Prompts user for t
 
 int main(void)
 {
@@ -38,7 +38,7 @@ int main(void)
     switch(validInput)
     {
       case 1:
-        equation1();
+        equation1(&result);
         break;
       case	2:
         break;
@@ -83,7 +83,7 @@ void equation1(float *result)
   float v0 = get_velocity_initial();
   float a = get_acceleration();
   float t = get_time();
-  
+
   result = 1.1;
 }
 
