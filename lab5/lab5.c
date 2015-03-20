@@ -26,10 +26,13 @@ float get_time(void); // Prompts user for t
 
 int main(void)
 {
+  //Input variable
+  int validInput;
+
   do
   {
     //Print menu and return valid input.
-    int validInput = user_menu();
+    validInput = user_menu();
 
     //Stores result and allow pass pointer by reference.
     float result;
