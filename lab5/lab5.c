@@ -31,7 +31,7 @@ int main(void)
   int validInput;
 
   // Print welcome message
-  printf("Welcome to the MOTION EQUATION CALCULATOR\n\n");
+  printf("\nWelcome to the MOTION EQUATION CALCULATOR\n");
 
   do
   {
