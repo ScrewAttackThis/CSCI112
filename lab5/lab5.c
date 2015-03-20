@@ -63,26 +63,34 @@ int main(void)
 
 int user_menu()
 {
-	//input variable
-	int input;
-
-  //print menu
-	printf("\nChoose a motion equation 1-4 or choose 5 to QUIT > \n");
-  //Scan user input
-	scanf("%d",&input);
-
-  //Validate that input is 1-5 inclusive
-  if(input < 1 || input > 5)
+  bool valid = false;
+  do
   {
-    printf("Invalid option. Please try again.");
-  }
+  	//input variable
+  	int input;
+
+    //print menu
+  	printf("\nChoose a motion equation 1-4 or choose 5 to QUIT > \n");
+    //Scan user input
+  	scanf("%d",&input);
+
+    //Validate that input is 1-5 inclusive
+    if(input < 1 || input > 5)
+    {
+      printf("Invalid option. Please try again.");
+    }
+    else
+    {
+      valid = true;
+    }
+  }while(valid == true);
 
   return input;
 }
 
 void equation1(float *result)
 {
-  printf("equation1");
+  printf("equation1\n");
   float v0 = get_velocity_initial();
   float a = get_acceleration();
   float t = get_time();
@@ -97,19 +105,19 @@ float get_position_initial()
 }
 
 // Prompts user for xf
-float get_position_final ()
+float get_position_final()
 {
   return 0.0;
 }
 
 // Prompts user for v0
-float get_velocity_initial ()
+float get_velocity_initial()
 {
   return 0.0;
 }
 
 // Prompts user for vf
-float get_velocity_final ()
+float get_velocity_final()
 {
   return 0.0;
 }
