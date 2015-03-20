@@ -76,7 +76,7 @@ int user_menu()
     //Validate that input is 1-5 inclusive
     if(input < 1 || input > 5)
     {
-      printf("Invalid option. Please try again.");
+      printf("Invalid option. Please try again.\n");
     }
   }while(input < 1 || input > 5);
 
@@ -85,10 +85,9 @@ int user_menu()
 
 void equation1(float *result)
 {
-  printf("equation1\n");
-  float v0 = get_velocity_initial();
-  float a = get_acceleration();
-  float t = get_time();
+  float v0 = get_velocity_initial(); //Get initial velocity
+  float a = get_acceleration(); //Get acceleration
+  float t = get_time(); //Get time
 
   * result = 1.1;
 }
@@ -108,7 +107,8 @@ float get_position_final()
 // Prompts user for v0
 float get_velocity_initial()
 {
-  return 0.0;
+  printf("\tEnter initial velocity > ");
+  return scanf("%f");
 }
 
 // Prompts user for vf
@@ -120,11 +120,13 @@ float get_velocity_final()
 // Prompts user for a
 float get_acceleration ()
 {
-  return 0.0;
+  printf("\tEnter acceleration > ");
+  return scanf("%f");
 }
 
 // Prompts user for t
 float get_time ()
 {
-  return 0.0;
+  printf("\tEnter time > ")
+  return scanf("%f");
 }
