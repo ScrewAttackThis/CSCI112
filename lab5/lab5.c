@@ -33,7 +33,7 @@ int main(void)
     //Print menu and return valid input.
     validInput = user_menu();
 
-    //Stores result and allow pass pointer by reference.
+    //Stores result and allows pass pointer by reference.
     float result;
 
     //Handle menu choices
@@ -46,6 +46,10 @@ int main(void)
         equation2(&result);
         break;
       case 3:
+        equation3(&result);
+        break;
+      case 4:
+        equation4(&result);
         break;
       case 5:
         //exit program
@@ -84,23 +88,51 @@ int user_menu()
   return input;
 }
 
+//Calculates final velocity
 void equation1(float *result)
 {
   float v0 = get_velocity_initial(); //Get initial velocity
   float a = get_acceleration(); //Get acceleration
   float t = get_time(); //Get time
 
-  * result = v0 + (a*t);
+  //Calculate final velocity equation
+  * result = v0 + a * t;
 }
 
+//Calculates final position using x0, v0, t, and a
 void equation2(float *result)
 {
-  float x0 = get_position_initial();
-  float v0 = get_velocity_initial();
-  float t = get_time();
-  float a = get_acceleration();
+  float x0 = get_position_initial(); //Get initial position
+  float v0 = get_velocity_initial(); //Get initial velocity
+  float t = get_time(); //Get time
+  float a = get_acceleration(); //Get acceleration
 
-  * result = x0 + (v0 * t) + (.5 * a * t * t);
+  //Calculate final position equation
+  * result = x0 + v0 * t + .5 * a * t * t;
+}
+
+//Calculates final velocity
+void equation3(float *result)
+{
+  float v0 = get_velocity_initial(); //Get initial velocity
+  float a = get_acceleration(); //Get acceleration
+  float xf = get_position_final(); //Get final position
+  float x0 = get_position_initial(); //Get initial position
+
+  //Calculate final velocity equation
+  * result = sqrt(v0 * v0 + 2 * a(xf-x0));
+}
+
+//Calculates final position using x0, vf, v0, t
+void equation4(float *result)
+{
+  float x0 = get_position_initial(); //Get initial position
+  float vf = get_velocity_final(); //Get final velocity
+  float v0 = get_velocity_initial(); //Get
+  float t = get_time();
+
+  //Calculate final position equation
+  * result = x0 + .5(vf - v0) * t;
 }
 
 // Prompts user for x0
@@ -116,7 +148,11 @@ float get_position_initial()
 // Prompts user for xf
 float get_position_final()
 {
-  return 0.0;
+  float xf; //Final position variable
+  printf("\tEnter final position > ");
+
+  scanf("%f", &xf); //scan input and save to xf variable
+  return xf;
 }
 
 // Prompts user for v0
@@ -132,7 +168,11 @@ float get_velocity_initial()
 // Prompts user for vf
 float get_velocity_final()
 {
-  return 0.0;
+  float vf; //Final velocity variable
+  printf("\tEnter final velocity > ");
+
+  scanf("%f", &vf); //scan input and save to vf variable
+  return vf;
 }
 
 // Prompts user for a
