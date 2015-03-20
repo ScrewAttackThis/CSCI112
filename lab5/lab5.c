@@ -92,10 +92,24 @@ void equation1(float *result)
   * result = v0 + (a*t);
 }
 
+void equation2(float *result)
+{
+  float x0 = get_position_initial();
+  float v0 = get_velocity_initial();
+  float t = get_time();
+  float a = get_acceleration();
+
+  * result = x0 + (v0 * t) + (.5 * a * t * t);
+}
+
 // Prompts user for x0
 float get_position_initial()
 {
-  return 0.0;
+  float x0; //initial position variable
+  printf("\tEnter initial position > ");
+
+  scanf("%f", &x0); //Scan input and save it to the x0 variable
+  return x0;
 }
 
 // Prompts user for xf
@@ -107,10 +121,10 @@ float get_position_final()
 // Prompts user for v0
 float get_velocity_initial()
 {
-  float v0;
+  float v0; //velocity variable
   printf("\tEnter initial velocity > ");
 
-  scanf("%f", &v0);
+  scanf("%f", &v0); //Scan input and save to v0 variable
   return v0;
 }
 
@@ -123,17 +137,17 @@ float get_velocity_final()
 // Prompts user for a
 float get_acceleration ()
 {
-  float a;
+  float a; //acceleration variable
   printf("\tEnter acceleration > ");
-  scanf("%f", &a);
+  scanf("%f", &a); //scan input and save to a variable
   return a;
 }
 
 // Prompts user for t
 float get_time ()
 {
-  float t;
+  float t; //time variable
   printf("\tEnter time > ");
-  scanf("%f", &t);
+  scanf("%f", &t); //scan input and save to t variable
   return t;
 }
