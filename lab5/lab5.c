@@ -107,8 +107,11 @@ float get_position_final()
 // Prompts user for v0
 float get_velocity_initial()
 {
+  float v0;
   printf("\tEnter initial velocity > ");
-  return scanf("%f");
+
+  scanf("%f", &v0);
+  return v0;
 }
 
 // Prompts user for vf
@@ -120,13 +123,17 @@ float get_velocity_final()
 // Prompts user for a
 float get_acceleration ()
 {
+  float a;
   printf("\tEnter acceleration > ");
-  return scanf("%f");
+  scanf("%f", &a);
+  return a;
 }
 
 // Prompts user for t
 float get_time ()
 {
+  float t;
   printf("\tEnter time > ");
-  return scanf("%f");
+  scanf("%f", &t)
+  return t;
 }
