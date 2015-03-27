@@ -10,8 +10,8 @@
 void printCode(int [12]);
 void checkBarcode(int [12]);
 int getTotalSum(int [12]);
-int stepFour(int);
-void stepFive(int, int);
+int getCheckDigit(int);
+void validateBarcode(int, int);
 
 
 int main(void)
@@ -43,12 +43,11 @@ void checkBarcode(int barcode[12])
   int totalSum = getTotalSum(barcode);
 
   //Start step four and save resultin checkDigit variable
-  int checkDigit = stepFour(totalSum);
+  int checkDigit = getCheckDigit(totalSum);
 
   //Start step five
-  stepFive(checkDigit, barcode[11]);
+  validateBarcode(checkDigit, barcode[11]);
 }
-
 
 //Prints barcode by looping through each element of the array
 void printCode(int barcode[12])
@@ -68,25 +67,28 @@ void printCode(int barcode[12])
 
 int getTotalSum(int barcode[12])
 {
-  int oddSum = 0;
-  int evenSum = 0;
+  int oddSum = 0;   //Stores odd sum
+  int evenSum = 0;  //Stores even sum
 
-  for(int i = 0; i < 11; i++)
+  for(int i = 0; i < 11; i++) //Loop through elements of barcode array except for last digit
   {
     if(i % 2 == 0) //Odd digits
     {
-      oddSum += barcode[i];
+      oddSum += barcode[i]; //Add current element to sum of odd digits
     }
     else //Even digits
     {
-      evenSum += barcode[i];
+      evenSum += barcode[i]; //Add current element to sum of even digits
     }
   }
 
+  //Multiply the odd sum by 3 according to algorithm
   oddSum *= 3;
 
+  //Add oddsum and even sum for the total sum
   int totalSum = oddSum + evenSum;
 
+  //Print results for steps
   //Print results of step 1
   printf("STEP 1: Sum of odds times 3 is %d\n",oddSum);
   //Print results of step 2
@@ -94,11 +96,11 @@ int getTotalSum(int barcode[12])
   //Print results of step 3
   printf("STEP 3: Total sum is %d\n",totalSum);
 
-  return totalSum;
+  return totalSum;  //Return the total sum
 }
 
 //Determines the check digit
-int stepFour(int totalSum)
+int getCheckDigit(int totalSum)
 {
   int lastDigit = totalSum % 10; //Gets last digit of total sum
 
@@ -119,7 +121,7 @@ int stepFour(int totalSum)
 }
 
 //Compares the check digit to the last digit of the bar code
-void stepFive(int checkDigit, int lastDigit)
+void validateBarcode(int checkDigit, int lastDigit)
 {
   if(checkDigit == lastDigit) //Barcode is valid
   {
