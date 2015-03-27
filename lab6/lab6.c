@@ -50,7 +50,7 @@ void checkBarcode(int barcode[12])
   }
 
   printf("check digit > %d \n",checkDigit);
-
+  printf("last digit > %d \n",barcode[12]);
   if(checkDigit == barcode[12])
   {
     //valid
