@@ -55,7 +55,7 @@ void printCode(int barcode[12])
   printf("\n\nYou entered the code: ");
   for(int i = 0; i < 12; i++)
   {
-    printf("%d ",barcode[12]);
+    printf("%d ",barcode[i]);
   }
 
   printf("\n");
