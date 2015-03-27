@@ -57,9 +57,7 @@ void checkBarcode(int barcode[12])
   }
 
   printf("STEP 4: Calculated check digit is %d\n",checkDigit);
-
-  printf("check digit > %d \n",checkDigit);
-  printf("last digit > %d \n",barcode[11]);
+  
   if(checkDigit == barcode[11])
   {
     //valid
