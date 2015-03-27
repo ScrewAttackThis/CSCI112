@@ -50,12 +50,12 @@ void checkBarcode(int barcode[12])
   if(checkDigit == barcode[12])
   {
     //valid
-    printf("valid");
+    printf("valid\n");
   }
   else
   {
     //invalid
-    printf("invalid");
+    printf("invalid\n");
   }
 }
 
@@ -66,6 +66,8 @@ int sumOdd(int barcode[12])
   {
     sum += barcode[i];
   }
+
+  printf("sum of odd digits > %d", sum);
   return sum;
 }
 
@@ -76,5 +78,8 @@ int sumEven(int barcode[12])
   {
 
   }
-  return 0;
+
+  printf("sum of even digits > %d", sum);
+
+  return sum;
 }
