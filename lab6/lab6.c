@@ -67,7 +67,7 @@ int sumOdd(int barcode[12])
     sum += barcode[i];
   }
 
-  printf("sum of odd digits > %d", sum);
+  printf("sum of odd digits > %d \n", sum);
   return sum;
 }
 
@@ -76,10 +76,10 @@ int sumEven(int barcode[12])
   int sum = 0;
   for(int i=1; i < 11; i+=2)
   {
-
+    sum += barcode[i];
   }
 
-  printf("sum of even digits > %d", sum);
+  printf("sum of even digits > %d \n", sum);
 
   return sum;
 }
