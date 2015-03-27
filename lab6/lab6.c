@@ -30,7 +30,7 @@ int main(void)
   // Print welcome message
   printf("\nEnter a bar code to check.  Seperate digits with a space > \n");
 
-  for(int i = 0; i < 12; i++)
+  for(int i = 0; i < 11; i++)
   {
     scanf("%d ", &barcode[i]);
   }
