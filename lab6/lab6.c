@@ -52,7 +52,7 @@ void checkBarcode(int barcode[12])
 
 void printCode(int barcode[12])
 {
-  printf("You entered the code: ");
+  printf("\n\nYou entered the code: ");
   for(int i = 0; i < 12; i++)
   {
     printf("%d ",barcode[12]);
