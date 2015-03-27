@@ -9,120 +9,126 @@
 
 void printCode(int [12]);
 void checkBarcode(int [12]);
-int stepOne(int [12]);
-int stepTwo(int [12]);
-int stepThree(int, int);
+int getTotalSum(int [12]);
 int stepFour(int);
 void stepFive(int, int);
 
 
 int main(void)
 {
-  //Input variable
-  int validInput;
-
-  //Barcode aray
+  //Barcode array stores user input
   int barcode[12];
-  //{0,7,9,4,0,0,8,0,4,5,0,1} valid
-  //{0,1,1,1,1,0,8,5,6,8,0,7} valid
-  //{0,5,1,0,0,0,1,3,8,1,0,1} valid
-  //{0,2,4,0,0,0,1,6,2,8,6,0} invalid
 
   // Print welcome message
   printf("\nEnter a bar code to check.  Seperate digits with a space > \n");
 
+  //Get user input and store it into barcode array
   for(int i = 0; i < 12; i++)
   {
     scanf("%d", &barcode[i]);
   }
 
+  //Begin barcode check
   checkBarcode(barcode);
 
+  //Exit with code 0
   return 0;
 }
 void checkBarcode(int barcode[12])
 {
+  //Print entered barcode
   printCode(barcode);
-  int oddSum = stepOne(barcode);
-  int evenSum = stepTwo(barcode);
-  int totalSum = stepThree(oddSum, evenSum);
+
+  //Start step three and save result in totalsum variable
+  int totalSum = getTotalSum(barcode);
+
+  //Start step four and save resultin checkDigit variable
   int checkDigit = stepFour(totalSum);
+
+  //Start step five
   stepFive(checkDigit, barcode[11]);
 }
 
+
+//Prints barcode by looping through each element of the array
 void printCode(int barcode[12])
 {
-  printf("\n\nYou entered the code: ");
+  printf("\nYou entered the code: ");
+
+  //Loop through array
   for(int i = 0; i < 12; i++)
   {
+    //Print current element
     printf("%d ",barcode[i]);
   }
 
+  //Prints final new line
   printf("\n");
 }
 
-int stepOne(int barcode[12])
+int getTotalSum(int barcode[12])
 {
-  int sum = 0;
-  for(int i=0; i < 12; i+=2)
+  int oddSum = 0;
+  int evenSum = 0;
+
+  for(int i = 0; i < 11; i++)
   {
-    sum += barcode[i];
-  }
-  sum *= 3;
-
-  printf("STEP 1: Sum of odds times 3 is %d\n",sum);
-
-  return sum;
-}
-
-int stepTwo(int barcode[12])
-{
-  int sum = 0;
-  for(int i=1; i < 11; i+=2)
-  {
-    sum += barcode[i];
+    if(i % 2 == 0) //Odd digits
+    {
+      oddSum += barcode[i];
+    }
+    else //Even digits
+    {
+      evenSum += barcode[i];
+    }
   }
 
-  printf("STEP 2: Sum of even digits is %d\n",sum);
+  oddSum *= 3;
 
-  return sum;
-}
-
-int stepThree(int oddSum, int evenSum)
-{
   int totalSum = oddSum + evenSum;
+
+  //Print results of step 1
+  printf("STEP 1: Sum of odds times 3 is %d\n",oddSum);
+  //Print results of step 2
+  printf("STEP 2: Sum of even digits is %d\n",evenSum);
+  //Print results of step 3
   printf("STEP 3: Total sum is %d\n",totalSum);
+
   return totalSum;
 }
 
+//Determines the check digit
 int stepFour(int totalSum)
 {
-  int lastDigit = totalSum % 10;
+  int lastDigit = totalSum % 10; //Gets last digit of total sum
 
   int checkDigit;
-  if(lastDigit == 0)
+  if(lastDigit == 0) //If last digit is 0, that's the check digit
   {
     checkDigit = lastDigit;
   }
-  else
+  else //Otherwise, the check digit is 10 minus the last digit
   {
     checkDigit = 10 - lastDigit;
   }
 
+  //Print results of step 4
   printf("STEP 4: Calculated check digit is %d\n",checkDigit);
-  return checkDigit;
+
+  return checkDigit; //Return the check digit
 }
 
+//Compares the check digit to the last digit of the bar code
 void stepFive(int checkDigit, int lastDigit)
 {
-  if(checkDigit == lastDigit)
+  if(checkDigit == lastDigit) //Barcode is valid
   {
-    //valid
+    //Print that the results are valid
     printf("STEP 5: Check digit and last digit match\nBarcode is VALID.\n");
   }
-  else
+  else //Barcode is invalid
   {
-    //invalid
+    //Print that the results are invalid
     printf("STEP 5: Check digit and last digit do not match\nBarcode is INVALID.\n");
   }
 }
