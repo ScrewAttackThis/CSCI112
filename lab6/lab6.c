@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <math.h>
 
+void printCode(int [12]);
 void checkBarcode(int [12]);
 int stepOne(int [12]);
 int stepTwo(int [12]);
@@ -39,15 +40,25 @@ int main(void)
 
   return 0;
 }
-
 void checkBarcode(int barcode[12])
 {
-  //Loop through twice, once for odd and once for even
+  printCode(barcode);
   int oddSum = stepOne(barcode);
   int evenSum = stepTwo(barcode);
   int totalSum = stepThree(oddSum, evenSum);
   int checkDigit = stepFour(totalSum);
   stepFive(checkDigit, barcode[11]);
+}
+
+void printCode(int barcode[12])
+{
+  printf("You entered the code: ");
+  for(int i = 0; i < 12; i++)
+  {
+    printf("%d ",barcode[12]);
+  }
+
+  printf("\n");
 }
 
 int stepOne(int barcode[12])
