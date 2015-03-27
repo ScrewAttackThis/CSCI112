@@ -37,9 +37,12 @@ void checkBarcode(int barcode[12])
   int oddSum = sumOdd(barcode);
   int evenSum = sumEven(barcode);
 
-  int totalSum = oddSum * 3 + evenSum;
+  printf("STEP 1: Sum of odds times 3 is %d\n",oddSum);
+  printf("STEP 2: Sum of even digits is %d\n",evenSum);
 
-  printf("total sum > %d \n",totalSum);
+  int totalSum = oddSum + evenSum;
+
+  printf("STEP 3: Total sum is %d\n",totalSum);
 
   int lastDigit = totalSum % 10;
 
@@ -53,17 +56,19 @@ void checkBarcode(int barcode[12])
     checkDigit = 10 - lastDigit;
   }
 
+  printf("STEP 4: Calculated check digit is %d\n",checkDigit);
+
   printf("check digit > %d \n",checkDigit);
   printf("last digit > %d \n",barcode[11]);
   if(checkDigit == barcode[11])
   {
     //valid
-    printf("valid\n");
+    printf("STEP 5: Check digit and last digit match\nBarcode is VALID.\n");
   }
   else
   {
     //invalid
-    printf("invalid\n");
+    printf("STEP 5: Check digit and last digit do not match\nBarcode is INVALID.\n");
   }
 }
 
@@ -76,7 +81,7 @@ int sumOdd(int barcode[12])
   }
 
   printf("sum of odd digits > %d \n", sum);
-  return sum;
+  return sum * 3;
 }
 
 int sumEven(int barcode[12])
