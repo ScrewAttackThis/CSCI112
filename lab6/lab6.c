@@ -23,7 +23,7 @@ int main(void)
   printf("\nEnter a bar code to check.  Seperate digits with a space > \n");
 
   //Test - delete
-  barcode = {0,7,9,4,0,0,8,0,4,5,0,1};
+  barcode[] = {0,7,9,4,0,0,8,0,4,5,0,1};
 
   checkBarcode(barcode);
 
