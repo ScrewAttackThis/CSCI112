@@ -21,7 +21,7 @@ int main(void)
   int validInput;
 
   //Barcode aray
-  int barcode[12] = {0,7,9,4,0,0,8,0,4,5,0,1};
+  int barcode[12];
   //{0,7,9,4,0,0,8,0,4,5,0,1} valid
   //{0,1,1,1,1,0,8,5,6,8,0,7} valid
   //{0,5,1,0,0,0,1,3,8,1,0,1} valid
@@ -29,6 +29,11 @@ int main(void)
 
   // Print welcome message
   printf("\nEnter a bar code to check.  Seperate digits with a space > \n");
+
+  for(int i = 0; i < 12; i++)
+  {
+    scanf("%d ", &arr[i]);
+  }
 
   checkBarcode(barcode);
 
@@ -43,9 +48,6 @@ void checkBarcode(int barcode[12])
   int totalSum = stepThree(oddSum, evenSum);
   int checkDigit = stepFour(totalSum);
   stepFive(checkDigit, barcode[11]);
-
-
-
 }
 
 int stepOne(int barcode[12])
