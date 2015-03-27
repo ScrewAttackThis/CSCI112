@@ -35,6 +35,8 @@ void checkBarcode(int barcode[12])
 
   int totalSum = oddSum * 3 + evenSum;
 
+  printf("total sum > %d \n",totalSum);
+
   int lastDigit = totalSum % 10;
 
   int checkDigit;
@@ -46,6 +48,8 @@ void checkBarcode(int barcode[12])
   {
     checkDigit = 10 - lastDigit;
   }
+
+  printf("check digit > %d \n",checkDigit);
 
   if(checkDigit == barcode[12])
   {
