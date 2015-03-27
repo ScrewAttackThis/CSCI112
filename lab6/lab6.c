@@ -8,8 +8,12 @@
 #include <math.h>
 
 void checkBarcode(int [12]);
-int sumOdd(int [12]);
-int sumEven(int [12]);
+int stepOne(int [12]);
+int stepTwo(int [12]);
+int stepThree(int, int);
+int stepFour(int);
+void stepFive(int, int);
+
 
 int main(void)
 {
@@ -34,16 +38,52 @@ int main(void)
 void checkBarcode(int barcode[12])
 {
   //Loop through twice, once for odd and once for even
-  int oddSum = sumOdd(barcode);
-  int evenSum = sumEven(barcode);
+  int oddSum = stepOne(barcode);
+  int evenSum = stepTwo(barcode);
+  int totalSum = stepThree(oddSum, evenSum);
+  int checkDigit = stepFour(totalSum);
+  stepFive(checkDigit, barcode[11]);
 
-  printf("STEP 1: Sum of odds times 3 is %d\n",oddSum);
-  printf("STEP 2: Sum of even digits is %d\n",evenSum);
 
+
+}
+
+int stepOne(int barcode[12])
+{
+  int sum = 0;
+  for(int i=0; i < 12; i+=2)
+  {
+    sum += barcode[i];
+  }
+  sum *= 3;
+
+  printf("STEP 1: Sum of odds times 3 is %d\n",sum);
+
+  return sum;
+}
+
+int stepTwo(int barcode[12])
+{
+  int sum = 0;
+  for(int i=1; i < 11; i+=2)
+  {
+    sum += barcode[i];
+  }
+
+  printf("STEP 2: Sum of even digits is %d\n",sum);
+
+  return sum;
+}
+
+int stepThree(int oddSum, int evenSum)
+{
   int totalSum = oddSum + evenSum;
-
   printf("STEP 3: Total sum is %d\n",totalSum);
+  return totalSum;
+}
 
+int stepFour(int totalSum)
+{
   int lastDigit = totalSum % 10;
 
   int checkDigit;
@@ -57,8 +97,12 @@ void checkBarcode(int barcode[12])
   }
 
   printf("STEP 4: Calculated check digit is %d\n",checkDigit);
-  
-  if(checkDigit == barcode[11])
+  return checkDigit;
+}
+
+void stepFive(int checkDigit, int lastDigit)
+{
+  if(checkDigit == lastDigit)
   {
     //valid
     printf("STEP 5: Check digit and last digit match\nBarcode is VALID.\n");
@@ -68,29 +112,4 @@ void checkBarcode(int barcode[12])
     //invalid
     printf("STEP 5: Check digit and last digit do not match\nBarcode is INVALID.\n");
   }
-}
-
-int sumOdd(int barcode[12])
-{
-  int sum = 0;
-  for(int i=0; i < 12; i+=2)
-  {
-    sum += barcode[i];
-  }
-
-  printf("sum of odd digits > %d \n", sum);
-  return sum * 3;
-}
-
-int sumEven(int barcode[12])
-{
-  int sum = 0;
-  for(int i=1; i < 11; i+=2)
-  {
-    sum += barcode[i];
-  }
-
-  printf("sum of even digits > %d \n", sum);
-
-  return sum;
 }
