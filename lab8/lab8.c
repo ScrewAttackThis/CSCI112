@@ -8,7 +8,7 @@
  #include <stdio.h>
 
  //Constants
- #define NAME_SIZE = 25;
+ #define NAME_SIZE = 25
 
  //Prototypes
 
