@@ -56,9 +56,10 @@
    printf("Enter information for student:\n");
    printf("Enter SID:> ");
    scanf("%d", &newStudent.sid);
-   printf("Student id entered: %d", newStudent.sid);
+   printf("Student id entered: %d \n", newStudent.sid);
    printf("Enter last name:> ");
    scanf("%s", &newStudent.lastName);
+   printf("last name entered: %s \n", newStudent.lastName);
    printf("Enter first name:> ");
    scanf("%s", &newStudent.firstName);
    printf("Enter grades (seperated by space):> ");
@@ -89,5 +90,6 @@
    {
      sum += studentRecord->grades[i];
    }
-   return sum/numberOfGrades;
+
+   return sum/(float)numberOfGrades;
  }
