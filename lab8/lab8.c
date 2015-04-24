@@ -72,9 +72,6 @@
    {
      //BROKEN AS SHIT
      scanf("%f", &(newStudent.grades[i]));
-
-     newStudent.grades[i] = 10 + 10 * i;
-     printf("test: %.2f\n", newStudent.grades[i]);
    }
    printf("\n\n");
    newStudent.gpa = calcGPA(newStudent, numberOfGrades);
