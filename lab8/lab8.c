@@ -70,10 +70,10 @@
 
    for(int i = 0; i < numberOfGrades; i++)
    {
-     //BROKEN AS SHIT
+     //NO LONGER BROKEN AS SHIT
      scanf("%f", &(newStudent.grades[i]));
    }
-   printf("\n\n");
+   printf("\n");
    newStudent.gpa = calcGPA(newStudent, numberOfGrades);
 
    return newStudent;
