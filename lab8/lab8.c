@@ -49,6 +49,8 @@
 
    printStudents(studentsArray, numberOfStudents, numberOfGrades);  //Calls the printStudents function
 
+   free(studentsArray);   //Deallocate memory from students array
+   
    //Exit with code 0
    return 0;
  }
