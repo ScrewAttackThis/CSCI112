@@ -35,10 +35,14 @@
    scanf("%d", &numberOfGrades);
 
    printf("\nThere are %d students.\n", numberOfStudents);
-   printf("\nThere are %d grades.\n", numberOfGrades);
+   printf("There are %d grades.\n", numberOfGrades);
 
    student *studentsArray = (student *) malloc(numberOfStudents * sizeof(student));
 
+   for(int i = 0; i < numberOfStudents; i++)
+   {
+     inputStudent(numberOfGrades); 
+   }
    //Exit with code 0
    return 0;
  }
@@ -48,7 +52,10 @@
    student newStudent;
    printf("Enter information for student:\n");
    printf("Enter SID:> ");
+   scanf("%d", &newStudent.sid);
    printf("Enter last name:> ");
+   scanf("%s", &newStudent.lastName);
    printf("Enter first name:> ");
+   scanf("%s", &newStudent.firstName);
    printf("Enter grades (seperated by space):> ");
  }
