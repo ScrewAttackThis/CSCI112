@@ -74,6 +74,7 @@
      scanf("%f", &(newStudent.grades[i]));
 
      newStudent.grades[i] = 10 * i;
+     printf("%.2f", newStudent.(*grades[i]));
    }
    printf("\n\n");
    newStudent.gpa = calcGPA(newStudent, numberOfGrades);
