@@ -65,16 +65,13 @@
 
    for(int i = 0; i < numberOfGrades; i++)
    {
-     int newGrade;
-     scanf("%d", &newGrade);
-
-     *(newStudent.grades + i) = newGrade;
+     scanf("%d", &newStudent.grades[i]);
    }
 
    printf("Grades entered: ");
    for(int i = 0; i < numberOfGrades; i++)
    {
-     printf("%d ", *(newStudent.grades + i));
+     printf("%d ", *(newStudent.grades[i]));
    }
 
    return newStudent;
