@@ -23,7 +23,8 @@
 
  //Prototypes
  student inputStudent(int);
- float calcGPA(student *record, int);
+ float calcGPA(student, int);
+ void printStudents();
 
  //Main function - collects user input and starts program
  int main(void)
@@ -54,24 +55,25 @@
    student newStudent;
 
    printf("Enter information for student:\n");
-   printf("Enter SID:> ");
+   printf("\tEnter SID:> ");
    scanf("%d", &newStudent.sid);
    printf("Student id entered: %d \n", newStudent.sid);
-   printf("Enter last name:> ");
+   printf("\tEnter last name:> ");
    scanf("%s", &newStudent.lastName);
    printf("last name entered: %s \n", newStudent.lastName);
-   printf("Enter first name:> ");
+   printf("\tEnter first name:> ");
    scanf("%s", &newStudent.firstName);
-   printf("Enter grades (seperated by space):> ");
+   printf("\tEnter grades (seperated by space):> ");
 
    newStudent.grades = (float *) malloc(numberOfGrades * sizeof(float));
 
    for(int i = 0; i < numberOfGrades; i++)
    {
+     //BROKEN AS SHIT
      scanf("%d", &(newStudent.grades[i]));
    }
 
-   newStudent.gpa = calcGPA(&newStudent, numberOfGrades);
+   newStudent.gpa = calcGPA(newStudent, numberOfGrades);
    printf("student.gpa = %.2f \n", newStudent.gpa);
    /*printf("Grades entered: ");
    for(int i = 0; i < numberOfGrades; i++)
@@ -82,17 +84,32 @@
    return newStudent;
  }
 
- float calcGPA(student *studentRecord, int numberOfGrades)
+ float calcGPA(student studentRecord, int numberOfGrades)
  {
    float sum = 0.0;
 
    for(int i = 0; i < numberOfGrades; i++)
    {
-     sum += studentRecord->grades[i];
+     sum += studentRecord.grades[i];
    }
 
 
    printf("sumtest: %.2f \n", sum);
 
    return sum/(float)numberOfGrades;
+ }
+
+ void printStudents(student *students, int numberOfStudents, int numberOfGrades)
+ {
+   for(int si = 0; si < numberOfStudents; si++)
+   {
+     printf("Student ID #%d\n", (students + i)->sid);
+     printf("\tName:\t%s %s\n",(students + i)->firstName, (students + i)->lastName);
+     printf("\tGrades:\t");
+     for(int gi = 0; gi < numberOfGrades; gi++)
+     {
+
+     }
+     printf("\n\tGPA:\t%.2f",(students + i)->gpa);
+   }
  }
