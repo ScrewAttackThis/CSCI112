@@ -23,7 +23,7 @@
 
  //Prototypes
  student inputStudent(int);
- float calcGPA(student, int);
+ float calcGPA(*student, int);
 
  //Main function - collects user input and starts program
  int main(void)
