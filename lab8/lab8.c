@@ -72,7 +72,7 @@
    }
 
    newStudent.gpa = calcGPA(&newStudent, numberOfGrades);
-   printf("%.2f",newStudent.gpa);
+   printf("student.gpa = %.2f \n", newStudent.gpa);
    /*printf("Grades entered: ");
    for(int i = 0; i < numberOfGrades; i++)
    {
@@ -90,6 +90,9 @@
    {
      sum += studentRecord->grades[i];
    }
+
+
+   printf("sumtest: %.2f \n", sum);
 
    return sum/(float)numberOfGrades;
  }
