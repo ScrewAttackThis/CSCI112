@@ -50,5 +50,5 @@
    printf("Enter SID:> ");
    printf("Enter last name:> ");
    printf("Enter first name:> ");
-   prinf("Enter grades (seperated by space):> ");
+   printf("Enter grades (seperated by space):> ");
  }
