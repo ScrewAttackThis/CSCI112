@@ -12,7 +12,8 @@
  #define NAME_SIZE    25
 
  //Prototypes
- void inputStudent(int);
+ student inputStudent(int);
+
  //Student struct
  typedef struct Students
  {
@@ -41,15 +42,18 @@
 
    for(int i = 0; i < numberOfStudents; i++)
    {
-     inputStudent(numberOfGrades); 
+     *(studentsArray + i) = inputStudent(numberOfGrades);
    }
    //Exit with code 0
    return 0;
  }
 
- void inputStudent(int numberOfGrades)
+ student inputStudent(int numberOfGrades)
  {
    student newStudent;
+   newStudent.grades = (float *) malloc(numberOfGrades * sizeof(float));
+
+
    printf("Enter information for student:\n");
    printf("Enter SID:> ");
    scanf("%d", &newStudent.sid);
@@ -58,4 +62,17 @@
    printf("Enter first name:> ");
    scanf("%s", &newStudent.firstName);
    printf("Enter grades (seperated by space):> ");
+
+   for(int i = 0; i < numberOfGrades; i++)
+   {
+      scanf("%d", *(newStudent.grades + i));
+   }
+
+   printf("Grades entered: ");
+   for(int i = 0; i < numberOfGrades; i++)
+   {
+     printf("%d", *(newStudent.grades + i));
+   }
+
+   return newStudent;
  }
