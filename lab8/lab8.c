@@ -88,9 +88,6 @@
      sum += studentRecord.grades[i];
    }
 
-
-   printf("sumtest: %.2f \n", sum);
-
    return sum/(float)numberOfGrades;
  }
 
