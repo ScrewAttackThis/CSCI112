@@ -106,7 +106,7 @@
      printf("\tGrades:\t");
      for(int gi = 0; gi < numberOfGrades; gi++)
      {
-
+       printf("%.1f ",(students + si)->grades[gi]);
      }
      printf("\n\tGPA:\t%.2f\n",(students + si)->gpa);
    }
