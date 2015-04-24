@@ -11,9 +11,6 @@
  //Constants
  #define NAME_SIZE    25
 
- //Prototypes
- student inputStudent(int);
-
  //Student struct
  typedef struct Students
  {
@@ -23,6 +20,9 @@
    float *grades;
    float gpa;
  } student;
+ 
+ //Prototypes
+ student inputStudent(int);
 
  //Main function - collects user input and starts program
  int main(void)
