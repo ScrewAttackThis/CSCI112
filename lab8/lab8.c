@@ -60,10 +60,8 @@
    printf("Enter information for student:\n");
    printf("\tEnter SID:> ");
    scanf("%d", &newStudent.sid);
-   printf("Student id entered: %d \n", newStudent.sid);
    printf("\tEnter last name:> ");
    scanf("%s", &newStudent.lastName);
-   printf("last name entered: %s \n", newStudent.lastName);
    printf("\tEnter first name:> ");
    scanf("%s", &newStudent.firstName);
    printf("\tEnter grades (seperated by space):> ");
@@ -74,15 +72,11 @@
    {
      //BROKEN AS SHIT
      scanf("%f", &(newStudent.grades[i]));
+
+     newStudent.grades[i] = 10 * i;
    }
    printf("\n\n");
    newStudent.gpa = calcGPA(newStudent, numberOfGrades);
-   printf("student.gpa = %.2f \n", newStudent.gpa);
-   /*printf("Grades entered: ");
-   for(int i = 0; i < numberOfGrades; i++)
-   {
-     printf("%d ", *newStudent.grades[i]);
-   }*/
 
    return newStudent;
  }
