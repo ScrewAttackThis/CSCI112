@@ -5,6 +5,7 @@
  */
 
  //includes
+ #include <stdlib.h>
  #include <stdio.h>
 
  //Constants
@@ -28,14 +29,26 @@
    int numberOfStudents = 0;
    int numberOfGrades = 0;
 
-   printf("\nEnter the number of students:> ");
+   printf("Enter the number of students:> ");
    scanf("%d", &numberOfStudents);
-   printf("\nEnter the number of grades to track:> ");
+   printf("Enter the number of grades to track:> ");
    scanf("%d", &numberOfGrades);
 
-   printf("\n\nThere are %d students.\n", numberOfStudents);
-   printf("\n\nThere are %d grades.\n", numberOfGrades);
+   printf("\nThere are %d students.\n", numberOfStudents);
+   printf("\nThere are %d grades.\n", numberOfGrades);
+
+   student *studentsArray = (student *) malloc(numberOfStudents * sizeof(student));
 
    //Exit with code 0
    return 0;
+ }
+
+ void inputStudent(int numberOfGrades)
+ {
+   student newStudent;
+   printf("Enter information for student:\n");
+   printf("Enter SID:> ");
+   printf("Enter last name:> ");
+   printf("Enter first name:> ");
+   prinf("Enter grades (seperated by space):> ");
  }
