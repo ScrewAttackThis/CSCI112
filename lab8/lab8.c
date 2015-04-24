@@ -12,7 +12,7 @@
  #define NAME_SIZE    25
 
  //Prototypes
-
+ void inputStudent(int);
  //Student struct
  typedef struct Students
  {
