@@ -51,7 +51,7 @@
  student inputStudent(int numberOfGrades)
  {
    student newStudent;
-   newStudent->grades = (float *) malloc(numberOfGrades * sizeof(float));
+   newStudent.grades = (float *) malloc(numberOfGrades * sizeof(float));
 
 
    printf("Enter information for student:\n");
@@ -65,7 +65,7 @@
 
    for(int i = 0; i < numberOfGrades; i++)
    {
-     scanf("%d", newStudent->grades + i);
+     scanf("%d", newStudent.grades + i);
    }
 
    printf("Grades entered: ");
