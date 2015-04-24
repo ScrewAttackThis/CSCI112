@@ -103,13 +103,13 @@
  {
    for(int si = 0; si < numberOfStudents; si++)
    {
-     printf("Student ID #%d\n", (students + i)->sid);
-     printf("\tName:\t%s %s\n",(students + i)->firstName, (students + i)->lastName);
+     printf("Student ID #%d\n", (students + si)->sid);
+     printf("\tName:\t%s %s\n",(students + si)->firstName, (students + si)->lastName);
      printf("\tGrades:\t");
      for(int gi = 0; gi < numberOfGrades; gi++)
      {
 
      }
-     printf("\n\tGPA:\t%.2f",(students + i)->gpa);
+     printf("\n\tGPA:\t%.2f",(students + si)->gpa);
    }
  }
