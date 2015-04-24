@@ -46,6 +46,9 @@
    {
      *(studentsArray + i) = inputStudent(numberOfGrades);
    }
+
+   printStudents(studentsArray, numberOfStudents, numberOfGrades);
+
    //Exit with code 0
    return 0;
  }
