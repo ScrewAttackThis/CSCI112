@@ -38,7 +38,7 @@
    scanf("%d", &numberOfGrades);
 
    printf("\nThere are %d students.\n", numberOfStudents);
-   printf("There are %d grades.\n", numberOfGrades);
+   printf("There are %d grades.\n\n", numberOfGrades);
 
    student *studentsArray = (student *) malloc(numberOfStudents * sizeof(student));
 
