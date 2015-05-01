@@ -159,13 +159,16 @@
      }
 
      fgets(curLine, LINE_SIZE, elFile);
-
+     strcpy(curLineCopy, curLine);
+     
      if(curLine[0] == '\0')
      {
        continue;
      }
 
-     char *atomic_number = strtok(curLine, delim);
+     curLine[0] = '\0';
+
+     char *atomic_number = strtok(curLineCopy, delim);
      char *atomic_weight = strtok(NULL, delim);
      char *name = strtok(NULL, delim);
      char *symbol = strtok(NULL, delim);
@@ -186,4 +189,6 @@
        break;
      }
    }
+
+   fclose(elFile);
  }
