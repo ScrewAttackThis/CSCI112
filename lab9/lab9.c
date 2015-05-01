@@ -109,19 +109,6 @@
    {
      while(1)
      {
-       if(feof(fin1p))
-       {
-         break;
-       }
-
-       fgets(curLineF1, LINE_SIZE, fin1p);
-       fprintf(foutp, curLineF1);
-     }
-   }
-   else
-   {
-     while(1)
-     {
        if(feof(fin2p))
        {
          break;
@@ -129,6 +116,19 @@
 
        fgets(curLineF2, LINE_SIZE, fin2p);
        fprintf(foutp, curLineF2);
+     }
+   }
+   else
+   {
+     while(1)
+     {
+       if(feof(fin1p))
+       {
+         break;
+       }
+
+       fgets(curLineF1, LINE_SIZE, fin1p);
+       fprintf(foutp, curLineF1);
      }
    }
 
