@@ -106,7 +106,8 @@
    //Determine which file ended, print rest of other file
    if(feof(fin1p))  //File 1 ended
    {
-     curLineF2 = curLineF2Copy;
+     strcpy(curLineF2,curLineF2Copy);
+
      while(1) //Loop through file 2
      {
        if(feof(fin2p))  //Make sure file 2 hasn't ended
@@ -120,7 +121,8 @@
    }
    else //File 2 ended
    {
-     curLineF1 = curLineF1Copy;
+     strcpy(curLineF1,curLineF1Copy);
+     
      while(1) //Loop through file 1
      {
        if(feof(fin1p))  //Make sure file 1 hasn't ended
