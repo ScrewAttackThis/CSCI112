@@ -174,13 +174,13 @@
 
      if(strcmp(symArg, symbol))
      {
-       printf("Element: %s", name);
-       printf("\tSymbol: %s", symbol);
-       printf("\tAtomic Number: %s", atomic_number);
-       printf("\tAtomic Weight: %s", atomic_weight);
+       printf("\nElement: %s\n", name);
+       printf("\tSymbol: %s\n", symbol);
+       printf("\tAtomic Number: %s\n", atomic_number);
+       printf("\tAtomic Weight: %s\n", atomic_weight);
        if(!strcmp(year,"ancient"))
        {
-         printf("\tDiscovered in: %s", year);
+         printf("\tDiscovered in: %s\n", year);
        }
 
        break;
