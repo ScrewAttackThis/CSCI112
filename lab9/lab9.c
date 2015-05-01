@@ -71,8 +71,8 @@
      fgets(curLineF1, LINE_SIZE, fin1p);
      fgets(curLineF2, LINE_SIZE, fin2p);
 
-     strcopy(curLineF1Copy, curLineF1);
-     strcopy(curLineF2Copy, curLineF2);
+     strcpy(curLineF1Copy, curLineF1);
+     strcpy(curLineF2Copy, curLineF2);
 
      int atomic1 = atoi(strtok(curLineF1, delim));
      int atomic2 = atoi(strtok(curLineF2, delim));
