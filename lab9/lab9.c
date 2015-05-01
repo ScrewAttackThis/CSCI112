@@ -104,89 +104,101 @@
    }
 
    //Determine which file ended, print rest of other file
-   if(feof(fin1p))
+   if(feof(fin1p))  //File 1 ended
    {
-     while(1)
+     while(1) //Loop through file 2
      {
-       if(feof(fin2p))
+       if(feof(fin2p))  //Make sure file 2 hasn't ended
        {
-         break;
+         break; //Ends loops
        }
 
-       fgets(curLineF2, LINE_SIZE, fin2p);
-       fprintf(foutp, curLineF2);
+       fgets(curLineF2, LINE_SIZE, fin2p);  //Get curline from file 2
+       fprintf(foutp, curLineF2); //Merge it to file 3
      }
    }
-   else
+   else //File 2 ended
    {
-     while(1)
+     while(1) //Loop through file 1
      {
-       if(feof(fin1p))
+       if(feof(fin1p))  //Make sure file 1 hasn't ended
        {
-         break;
+         break; //Ends loop
        }
 
-       fgets(curLineF1, LINE_SIZE, fin1p);
-       fprintf(foutp, curLineF1);
+       fgets(curLineF1, LINE_SIZE, fin1p);  //Get curline from file 1
+       fprintf(foutp, curLineF1); //Merge it to file 3
      }
    }
 
    printf("File merging complete.\n");
  }
 
+ //Function finds passed element symbol in elements.csv
  void findElement(char *symArg)
  {
-   FILE *elFile;
-   elFile = fopen("elements.csv","r");
+   FILE *elFile;  //Element file pointer
+   elFile = fopen("elements.csv","r");  //Open elements.csv for reading
 
    //Error checking
+   //Closes program if elements.csv couldn't be opened
    if(elFile == NULL)
    {
      printf("Error loading elements.csv");
      exit(1);
    }
 
+   //Variables to store current line from file and a copy
    char curLine[LINE_SIZE];
    char curLineCopy[LINE_SIZE];
 
+   //Loop through elements.csv until end of file
    while(1)
    {
+     //Check for end of file, exit loop if it's found
      if(feof(elFile))
      {
        break;
      }
 
+     //Get current line and then copy it
      fgets(curLine, LINE_SIZE, elFile);
      strcpy(curLineCopy, curLine);
 
+     //Skips empty line
      if(curLine[0] == '\0')
      {
        continue;
      }
 
-     curLine[0] = '\0';
+     //Split copy of current line based on delimiter
+     char *atomic_number = strtok(curLineCopy, delim);  //set the atomic number
+     char *atomic_weight = strtok(NULL, delim);         //set the atomic weight
+     char *name = strtok(NULL, delim);                  //set the element name
+     char *symbol = strtok(NULL, delim);                //set the element symbol
+     char *year = strtok(NULL, delim);                  //set the element's discovered year
+     char *category = strtok(NULL, delim);              //set the element's category
 
-     char *atomic_number = strtok(curLineCopy, delim);
-     char *atomic_weight = strtok(NULL, delim);
-     char *name = strtok(NULL, delim);
-     char *symbol = strtok(NULL, delim);
-     char *year = strtok(NULL, delim);
-     char *category = strtok(NULL, delim);
+     curLine[0] = '\0';   //Reset curline
 
+     //Check to see if curline contains element being searched for
      if(strcmp(symArg, symbol) == 0)
      {
-       printf("\nElement: %s\n", name);
-       printf("\tSymbol: %s\n", symbol);
-       printf("\tAtomic Number: %s\n", atomic_number);
-       printf("\tAtomic Weight: %s\n", atomic_weight);
-       if(strcmp(year, "ancient") != 0)
+       //Element found
+       printf("\nElement: %s\n", name);                 //Print name
+       printf("\tSymbol: %s\n", symbol);                //Print symbol
+       printf("\tAtomic Number: %s\n", atomic_number);  //Print atomic number
+       printf("\tAtomic Weight: %s\n", atomic_weight);  //Print atomic weight
+       if(strcmp(year, "ancient") != 0)                 //Print discovered year if it's not ancient
        {
          printf("\tDiscovered in: %s\n", year);
        }
 
+       //Element found, no need to keep searching
        break;
      }
    }
 
+   //Cleanup file use
    fclose(elFile);
  }
