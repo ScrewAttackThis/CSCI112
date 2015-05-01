@@ -165,12 +165,12 @@
        continue;
      }
 
-     char atomic_number[] = strtok(curLine, delim);
-     char atomic_weight[] = strtok(NULL, delim);
-     char name[] = strtok(NULL, delim);
-     char symbol[] = strtok(NULL, delim);
-     char year[] = strtok(NULL, delim);
-     char category[] = strtok(NULL, delim);
+     char *atomic_number = strtok(curLine, delim);
+     char *atomic_weight = strtok(NULL, delim);
+     char *name = strtok(NULL, delim);
+     char *symbol = strtok(NULL, delim);
+     char *year = strtok(NULL, delim);
+     char *category = strtok(NULL, delim);
 
      if(strcmp(symArg, symbol))
      {
