@@ -139,7 +139,7 @@
  void findElement(char *symArg)
  {
    FILE *elFile;
-   elFile = fopen("elements.csv");
+   elFile = fopen("elements.csv","r");
 
    //Error checking
    if(elFile == NULL)
