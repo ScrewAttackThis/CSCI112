@@ -66,24 +66,28 @@
    char curLineF1Copy[LINE_SIZE];
    char curLineF2Copy[LINE_SIZE];
 
+   fgets(curLineF1, LINE_SIZE, fin1p);
+   fgets(curLineF2, LINE_SIZE, fin2p);
+
+   strcpy(curLineF1Copy, curLineF1);
+   strcpy(curLineF2Copy, curLineF2);
+
    while(1)
    {
-     fgets(curLineF1, LINE_SIZE, fin1p);
-     fgets(curLineF2, LINE_SIZE, fin2p);
-
-     strcpy(curLineF1Copy, curLineF1);
-     strcpy(curLineF2Copy, curLineF2);
-
      int atomic1 = atoi(strtok(curLineF1, delim));
      int atomic2 = atoi(strtok(curLineF2, delim));
 
      if(atomic1 < atomic2)
      {
        fprintf(foutp, curLineF1Copy);
+       curLineF1[0] = '\0';
+       fget(curLineF1, LINE_SIZE, fin1p);
      }
      else
      {
        fprintf(foutp, curLineF2Copy);
+       curLineF2[0] = '\0';
+       fget(curLineF2, LINE_SIZE, fin2p);
      }
 
      if(feof(fin1p) || feof(fin2p))
@@ -91,6 +95,8 @@
        break;
      }
    }
+
+   //Determine which file ended, print rest of other file
 
    printf("File merging complete.");
  }
