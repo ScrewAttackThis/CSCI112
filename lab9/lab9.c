@@ -17,6 +17,7 @@
 
  //prototypes
  void fileMerge(FILE *fin1p, FILE *fin2p, FILE *foutp);
+ void findElement();
 
  //Main function
  int main(int argc, char *argv[])
@@ -52,9 +53,9 @@
    fclose(foutp);
 
    //Loop through arguments
-   for(int i = 1; i < 0; i++)
+   for(int i = 1; i < argc; i++)
    {
-
+     findElement(argv[i]);
    }
  }
 
@@ -133,4 +134,56 @@
    }
 
    printf("File merging complete.\n");
+ }
+
+ void findElement(char[] symArg)
+ {
+   FILE *elFile;
+   elFile = fopen("elements.csv");
+
+   //Error checking
+   if(elFile == NULL)
+   {
+     printf("Error loading elements.csv");
+     exit(1);
+   }
+
+   char curLine[LINE_SIZE];
+   char curLineCopy[LINE_SIZE];
+
+   while(1)
+   {
+     if(feof(elFile))
+     {
+       break;
+     }
+
+     fgets(curLine, LINE_SIZE, elFile);
+
+     if(curLine[0] == '\0')
+     {
+       continue;
+     }
+
+     char atomic_number[] = strtok(curLine, delim);
+     char atomic_weight[] = strtok(NULL, delim);
+     char name[] = strtok(NULL, delim);
+     char symbol[] = strtok(NULL, delim);
+     char year[] = strtok(NULL, delim);
+     char category[] = strtok(NULL, delim);
+
+     if(strcmp(symArg, symbol))
+     {
+       printf("Element: %s", name);
+       printf("\tSymbol: %s", symbol);
+       printf("\tAtomic Number: %s", atomic_number);
+       printf("\tAtomic Weight: %s", atomic_weight);
+       if(!strcmp(year,"ancient"))
+       {
+         printf("\tDiscovered in: %s", year);
+       }
+
+       break;
+     }
+   }
  }
