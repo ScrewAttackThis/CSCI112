@@ -81,13 +81,13 @@
      {
        fprintf(foutp, curLineF1Copy);
        curLineF1[0] = '\0';
-       fget(curLineF1, LINE_SIZE, fin1p);
+       fgets(curLineF1, LINE_SIZE, fin1p);
      }
      else
      {
        fprintf(foutp, curLineF2Copy);
        curLineF2[0] = '\0';
-       fget(curLineF2, LINE_SIZE, fin2p);
+       fgets(curLineF2, LINE_SIZE, fin2p);
      }
 
      if(feof(fin1p) || feof(fin2p))
