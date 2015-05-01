@@ -179,7 +179,7 @@
        printf("\tSymbol: %s\n", symbol);
        printf("\tAtomic Number: %s\n", atomic_number);
        printf("\tAtomic Weight: %s\n", atomic_weight);
-       if(strcmp(year,"ancient") == 0)
+       if(strcmp(year, "ancient") != 0)
        {
          printf("\tDiscovered in: %s\n", year);
        }
