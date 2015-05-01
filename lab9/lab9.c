@@ -74,6 +74,12 @@
 
    while(1)
    {
+
+     if(feof(fin1p) || feof(fin2p))
+     {
+       break;
+     }
+
      int atomic1 = atoi(strtok(curLineF1, delim));
      int atomic2 = atoi(strtok(curLineF2, delim));
 
@@ -99,6 +105,32 @@
    }
 
    //Determine which file ended, print rest of other file
+   if(feof(fin1p))
+   {
+     while(1)
+     {
+       if(feof(fin1p))
+       {
+         break;
+       }
 
-   printf("File merging complete.");
+       fgets(curLineF1, LINE_SIZE, fin1p);
+       fprintf(foutp, curLineF1);
+     }
+   }
+   else
+   {
+     while(1)
+     {
+       if(feof(fin2p))
+       {
+         break;
+       }
+
+       fgets(curLineF2, LINE_SIZE, fin2p);
+       fprintf(foutp, curLineF2);
+     }
+   }
+
+   printf("File merging complete.\n");
  }
