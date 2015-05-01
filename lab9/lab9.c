@@ -16,7 +16,7 @@
  const char delim[2] = ",";
 
  //prototypes
- void doFileStuff(FILE *fin1p, FILE *fin2p, FILE *foutp);
+ void fileMerge(FILE *fin1p, FILE *fin2p, FILE *foutp);
 
  //Main function
  int main(int argc, char *argv[])
@@ -44,7 +44,7 @@
      exit(1);
    }
 
-   doFileStuff(fin1p,fin2p,foutp);
+   fileMerge(fin1p,fin2p,foutp);
 
    //Close files
    fclose(fin1p);
@@ -58,7 +58,7 @@
    }
  }
 
- void doFileStuff(FILE *fin1p, FILE *fin2p, FILE *foutp)
+ void fileMerge(FILE *fin1p, FILE *fin2p, FILE *foutp)
  {
    char curLineF1[LINE_SIZE];
    char curLineF2[LINE_SIZE];
