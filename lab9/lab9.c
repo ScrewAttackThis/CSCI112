@@ -136,7 +136,7 @@
    printf("File merging complete.\n");
  }
 
- void findElement(char[] symArg)
+ void findElement(char *symArg)
  {
    FILE *elFile;
    elFile = fopen("elements.csv");
