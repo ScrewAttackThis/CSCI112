@@ -16,7 +16,7 @@
  const char delim[2] = ",";
 
  //prototypes
- doFileStuff(FILE *fin1p, FILE *fin2p, FILE *foutp);
+ void doFileStuff(FILE *fin1p, FILE *fin2p, FILE *foutp);
 
  //Main function
  int main(int argc, char *argv[])
