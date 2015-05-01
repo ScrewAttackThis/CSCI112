@@ -22,30 +22,30 @@
  //Main function
  int main(int argc, char *argv[])
  {
-   FILE *fin1p;   //elements_file1.csv
-   FILE *fin2p;   //elements_file2.csv
-   FILE *foutp;   //elements.csv
+   FILE *fin1p;   //File pointer for elements_file1.csv
+   FILE *fin2p;   //File pointer for elements_file2.csv
+   FILE *foutp;   //File pointer for elements.csv
 
-   fin1p = fopen("elements_file1.csv","r");
-   fin2p = fopen("elements_file2.csv","r");
-   foutp = fopen("elements.csv","w");
+   fin1p = fopen("elements_file1.csv","r");   //Opens elements_file1.csv
+   fin2p = fopen("elements_file2.csv","r");   //Opens elements_file2.csv
+   foutp = fopen("elements.csv","w");         //Opens elements.csv
 
    //Error checking
-   if(fin1p == NULL)
+   if(fin1p == NULL)        //Check if elements_file1.csv opened
    {
      printf("Error loading elements_file1.csv");
-     exit(1);
-   }else if(fin2p == NULL)
+     exit(1); //Exit program
+   }else if(fin2p == NULL)  //Check if elements_file2.csv opened
    {
      printf("Error loading elements_file2.csv");
-     exit(1);
-   }else if(fin2p == NULL)
+     exit(1); //Exit program
+   }else if(fin2p == NULL)  //Check if elements.csv opened
    {
      printf("Error loading elements.csv");
-     exit(1);
+     exit(1); //Exit program
    }
 
-   fileMerge(fin1p,fin2p,foutp);
+   fileMerge(fin1p,fin2p,foutp);  //Calls function to merge files
 
    //Close files
    fclose(fin1p);
@@ -55,53 +55,51 @@
    //Loop through arguments
    for(int i = 1; i < argc; i++)
    {
-     findElement(argv[i]);
+     findElement(argv[i]);  //Search for elements passed as command line arguments
    }
  }
 
+ //Function to merge two files into one, keeps them sorted
  void fileMerge(FILE *fin1p, FILE *fin2p, FILE *foutp)
  {
-   char curLineF1[LINE_SIZE];
-   char curLineF2[LINE_SIZE];
+   char curLineF1[LINE_SIZE]; //Stores current line from first file
+   char curLineF2[LINE_SIZE]; //Stores current line from second file
 
-   char curLineF1Copy[LINE_SIZE];
-   char curLineF2Copy[LINE_SIZE];
+   char curLineF1Copy[LINE_SIZE]; //Stores copy of curLine from first file
+   char curLineF2Copy[LINE_SIZE]; //Stores copy of  curLine from second file
 
-   fgets(curLineF1, LINE_SIZE, fin1p);
-   fgets(curLineF2, LINE_SIZE, fin2p);
+   fgets(curLineF1, LINE_SIZE, fin1p);  //Get a line from first file
+   fgets(curLineF2, LINE_SIZE, fin2p);  //Get a line from second file
 
-   strcpy(curLineF1Copy, curLineF1);
-   strcpy(curLineF2Copy, curLineF2);
+   strcpy(curLineF1Copy, curLineF1);  //Copy line from first file
+   strcpy(curLineF2Copy, curLineF2);  //Copy line from second file
 
+   //Loop until end of file is reached
    while(1)
    {
-
+     //Checks if end of file has been reached in either first or second file
      if(feof(fin1p) || feof(fin2p))
      {
        break;
      }
 
-     int atomic1 = atoi(strtok(curLineF1, delim));
-     int atomic2 = atoi(strtok(curLineF2, delim));
+     int atomic1 = atoi(strtok(curLineF1, delim));  //Get atomic number from first file
+     int atomic2 = atoi(strtok(curLineF2, delim));  //Get attomic number from second file
 
-     if(atomic1 < atomic2)
+     //Compare atomic numbers
+     if(atomic1 < atomic2)    //If first atomic number is smaller, print it to output file
      {
-       fprintf(foutp, curLineF1Copy);
-       curLineF1[0] = '\0';
-       fgets(curLineF1, LINE_SIZE, fin1p);
-       strcpy(curLineF1Copy, curLineF1);
+       fprintf(foutp, curLineF1Copy);       //Print curLine from file 1
+       curLineF1[0] = '\0';                 //Reset curLine
+       fgets(curLineF1, LINE_SIZE, fin1p);  //Get next line from file 1
+       strcpy(curLineF1Copy, curLineF1);    //Copy new curLine from file 1
      }
-     else
+     else //Second atomic number is smaller, print it
      {
-       fprintf(foutp, curLineF2Copy);
-       curLineF2[0] = '\0';
-       fgets(curLineF2, LINE_SIZE, fin2p);
-       strcpy(curLineF2Copy, curLineF2);
-     }
-
-     if(feof(fin1p) || feof(fin2p))
-     {
-       break;
+       fprintf(foutp, curLineF2Copy);       //Print curLine from file 2
+       curLineF2[0] = '\0';                 //Reset curLine
+       fgets(curLineF2, LINE_SIZE, fin2p);  //Get next line from file 2
+       strcpy(curLineF2Copy, curLineF2);    //Copy new curLine from file 2
      }
    }
 
