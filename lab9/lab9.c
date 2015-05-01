@@ -16,6 +16,7 @@
  const char delim[2] = ",";
 
  //prototypes
+ doFileStuff(FILE *fin1p, FILE *fin2p, FILE *foutp);
 
  //Main function
  int main(int argc, char *argv[])
@@ -33,11 +34,11 @@
    {
      printf("Error loading elements_file1.csv");
      exit(1);
-   }else if(fin2p == null)
+   }else if(fin2p == NULL)
    {
      printf("Error loading elements_file2.csv");
      exit(1);
-   }else if(fin2p == null)
+   }else if(fin2p == NULL)
    {
      printf("Error loading elements.csv");
      exit(1);
