@@ -160,7 +160,7 @@
 
      fgets(curLine, LINE_SIZE, elFile);
      strcpy(curLineCopy, curLine);
-     
+
      if(curLine[0] == '\0')
      {
        continue;
@@ -175,7 +175,7 @@
      char *year = strtok(NULL, delim);
      char *category = strtok(NULL, delim);
 
-     if(strcmp(symArg, symbol))
+     if(strcmp(symArg, symbol) == 0)
      {
        printf("\nElement: %s\n", name);
        printf("\tSymbol: %s\n", symbol);
