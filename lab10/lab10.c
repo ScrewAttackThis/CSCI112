@@ -141,6 +141,8 @@
      previousNode = currentNode;        //Set previous to current node
      currentNode = currentNode->next;   //Set current to the next node
    }
+
+   return previous;
  }
 
  void InsertNode(Movie *head, Movie *newNode)
