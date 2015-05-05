@@ -92,7 +92,14 @@
    if(result != NULL && result->next != NULL)
    {
      printf("\tSearch succesful.\n");
-     PrintNode(result);
+     if(searchID == 0)
+     {
+       PrintNode(result);
+     }
+     else
+     {
+       PrintNode(result->next);
+     }
    }
    else
    {
