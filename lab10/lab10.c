@@ -173,7 +173,8 @@
    InsertNode(node5);
  }
 
- //Search for an element in movies database
+ //Search for an element in movies database, returns previous element (never null)
+ //Needed for link list operations such as insert and delete
  Movie *ScanList(int searchMovieID)
  {
    Movie *previousNode, *currentNode; //declare variables for previous and current nodes of list
@@ -190,19 +191,23 @@
    return previousNode;
  }
 
+ //Search for an element in movies database.  Returns current element.
+ //Useful for when you don't need the previous element and easier to deal with the head.
  Movie *SearchRecords(int searchMovieID)
  {
-   Movie *currentNode = head;
+   Movie *currentNode = head; //Start at head
 
+   //Loop from head until all elements have been searched or a match is found
    while(currentNode != NULL && currentNode->movieID != searchMovieID)
    {
-     printf("test node: %d", currentNode->movieID);
      currentNode = currentNode->next;
    }
 
+   //Returns null if no match is found
    return currentNode;
  }
 
+ //Linked list operation to insert new node in sorted
  int InsertNode(Movie *newNode)
  {
    Movie *previousNode, *nextNode;  //Declare variables for previous and next nodes of list
@@ -223,6 +228,7 @@
    }
  }
 
+ //Linked list operation to delete node
  int DeleteNode(int searchMovieID)
  {
    Movie *previousNode, *deleteNode;
