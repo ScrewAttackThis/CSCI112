@@ -219,7 +219,7 @@
  {
    Movie *previousNode, *deleteNode;
 
-   previousNode = ScanList(*head, searchMovieID);
+   previousNode = ScanList(searchMovieID);
 
    if(previousNode == head)
    {
