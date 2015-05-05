@@ -113,6 +113,7 @@
      //Print out the appropriate node
      if(result == head && head->movieID == searchID)
      {
+       printf("Test");
        PrintNode(result); //Result is head and that's what was searched for
      }
      else
@@ -287,7 +288,7 @@
    }
    else
    {
-     //Alert the user that a match was not found 
+     //Alert the user that a match was not found
      printf("\tThe movie was not found in the records.  Delete cancelled.\n");
    }
  }
