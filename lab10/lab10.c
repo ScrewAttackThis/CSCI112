@@ -30,7 +30,7 @@
  void UserMenu(Movie *a);
  void CreateRecords(Movie *);
  void CreateRecords(Movie *);
- Movie ScanList(Movie *, int);
+ Movie *ScanList(Movie *, char *);
  void InsertNode(Movie *, Movie *);
  void DeleteNode(Movie *, int);
  void PrintList(Movie *);
@@ -123,14 +123,14 @@
  }
 
  //Search for an element in movies database
- Movie *ScanList(Movie *head, int searchMovieID)
+ Movie *ScanList(Movie *head, char* movieTitle)
  {
    Movie *previousNode, *currentNode; //declare variables for previous and current nodes of list
    previousNode = head;           //Set previous to head node.
    currentNode = head->next;      //Set current to next node.
 
    //Search until there are no more nodes or movieID is greater than the searchID
-   while((currentNode != NULL) && (currentNode->movieID < searchMovieID))
+   while((currentNode != NULL) && (strcmp(currentNode->title, movieTitle) < 0))
    {
      previousNode = currentNode;        //Set previous to current node
      currentNode = currentNode->next;   //Set current to the next node
@@ -140,8 +140,8 @@
  void InsertNode(Movie *head, Movie *newNode)
  {
    Movie *previousNode, *nextNode;  //Declare variables for previosu and next nodes of list
-   previousNode = ScanList(head, newNode->movieID);
-   nextNode = previous->next;
+   previousNode = ScanList(head, newNode->title);
+   nextNode = previousNode->next;
 
    if((nextNode == NULL) || (strcmp(nextNode->title, newNode->title) != 0))
    {
@@ -155,14 +155,14 @@
    }
  }
 
- void DeleteNode(Movie *head, int searchMovieID)
+ void DeleteNode(Movie *head, char* movieTitle)
  {
-   Movie *previousNode, deleteNode;
+   Movie *previousNode, *deleteNode;
 
-   previousNode = ScanList(head, searchMovieID);
+   previousNode = ScanList(head, movieTitle);
    deleteNode = previousNode->next;
 
-   if((deleteNode != NULL) && (deleteNode->movieID == searchMovieID)
+   if((deleteNode != NULL) && (strcmp(deleteNode->title, searchMovieID) == 0))
    {
      previousNode->next = deleteNode->next;
      free(deleteNode);
@@ -175,7 +175,7 @@
 
  void PrintList(Movie *head)
  {
-   Movie *currentNode =  *head;
+   Movie *currentNode =  head;
 
    while(currentNode != NULL)
    {
