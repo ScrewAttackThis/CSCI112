@@ -30,9 +30,9 @@
  void UserMenu(Movie *a);
  void CreateRecords(Movie *);
  void CreateRecords(Movie *);
- Movie *ScanList(Movie *, char *);
+ Movie *ScanList(Movie *, int);
  void InsertNode(Movie *, Movie *);
- void DeleteNode(Movie *, char *);
+ void DeleteNode(Movie *, int);
  void PrintList(Movie *);
  void PrintNode(Movie *);
  void Search(Movie *);
@@ -83,16 +83,16 @@
  //Search records for user entered movie
  void Search(Movie *head)
  {
-   char *searchTitle;
-   printf("\tEnter a movie title to search the database:\n");
-   scanf("\t%s", searchTitle);
+   int searchID;
+   printf("\tEnter a movie ID to search the database:\n");
+   scanf("%d", &searchID);
 
-   Movie *result = ScanList(head, searchTitle);
+   Movie *result = ScanList(head, searchID);
 
-   if(result != NULL)
+   if(result != NULL && result->next != NULL)
    {
      printf("\tSearch succesful.\n");
-     PrintNode(result);
+     PrintNode(result->next);
    }
    else
    {
@@ -110,30 +110,35 @@
    Movie *node5 = (Movie*) malloc(sizeof(Movie));
 
    //Initialize nodes with information
+   head->movieID = 0;
    strcpy(head->title,"Pulp Fiction");
    head->yearReleased = 1994;
    strcpy(head->director, "Quentin Tarantino");
    strcpy(head->starActor, "Bruce Willis");
    head->imdbRating = 8.9;
 
+   node2->movieID = 1;
    strcpy(node2->title, "Saving Private Ryan");
    node2->yearReleased = 1998;
    strcpy(node2->director, "Steven Spielberg");
    strcpy(node2->starActor, "Tom Hanks");
    node2->imdbRating = 8.6;
 
+   node3->movieID = 2;
    strcpy(node3->title, "The Matrix");
    node3->yearReleased = 1999;
    strcpy(node3->director, "The Wachowski Brotherss");
    strcpy(node3->starActor, "Keanu Reeves");
    node3->imdbRating = 8.7;
 
+   node4->movieID = 3;
    strcpy(node4->title, "The Godfather");
    node4->yearReleased = 1972;
    strcpy(node4->director, "Francis Ford Copola");
    strcpy(node4->starActor, "Al Pacino");
    node4->imdbRating = 9.2;
 
+   node5->movieID = 4;
    strcpy(node5->title, "The Shawshank Redemption");
    node5->yearReleased = 1994;
    strcpy(node5->director, "Frank Darabont");
@@ -148,14 +153,14 @@
  }
 
  //Search for an element in movies database
- Movie *ScanList(Movie *head, char* movieTitle)
+ Movie *ScanList(Movie *head, int searchMovieID)
  {
    Movie *previousNode, *currentNode; //declare variables for previous and current nodes of list
    previousNode = head;           //Set previous to head node.
    currentNode = head->next;      //Set current to next node.
 
    //Search until there are no more nodes or movieID is greater than the searchID
-   while((currentNode != NULL) && (strcmp(currentNode->title, movieTitle) < 0))
+   while((currentNode != NULL) && (currentNode->movieID < searchMovieID))
    {
      previousNode = currentNode;        //Set previous to current node
      currentNode = currentNode->next;   //Set current to the next node
@@ -182,14 +187,14 @@
    }
  }
 
- void DeleteNode(Movie *head, char* movieTitle)
+ void DeleteNode(Movie *head, int searchMovieID)
  {
    Movie *previousNode, *deleteNode;
 
-   previousNode = ScanList(head, movieTitle);
+   previousNode = ScanList(head, searchMovieID);
    deleteNode = previousNode->next;
 
-   if((deleteNode != NULL) && (strcmp(deleteNode->title, movieTitle) == 0))
+   if((deleteNode != NULL) && (deleteNode->movieID == searchMovieID))
    {
      previousNode->next = deleteNode->next;
      free(deleteNode);
