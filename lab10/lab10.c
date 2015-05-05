@@ -31,6 +31,7 @@
  void Search();
  void CreateRecords();
  Movie *ScanList(int);
+ Movie *SearchRecords(int);
  int InsertNode(Movie *);
  int DeleteNode(int);
  void PrintList();
@@ -102,7 +103,7 @@
    printf("\tEnter a movie ID to search the database:\n");
    scanf("%d", &searchID);  //Retrieve input from user for search
 
-   Movie *result = ScanList(searchID);  //Conduct search and save result
+   Movie *result = SearchRecords(searchID);  //Conduct search and save result
    //Result has to be not null
    if(result != NULL)
    {
@@ -190,12 +191,24 @@
    //Search until there are no more nodes or movieID is greater than the searchID
    while((currentNode != NULL) && (currentNode->movieID < searchMovieID))
    {
-     printf("test node: %d\n", currentNode->movieID);
      previousNode = currentNode;        //Set previous to current node
      currentNode = currentNode->next;   //Set current to the next node
    }
-   printf("test6\n");
+
    return previousNode;
+ }
+
+ Movie *SearchRecords(int searchMovieID)
+ {
+   Movie *currentNode;
+   currentNode = head->next;
+
+   while(currentNode != NULL)
+   {
+     currentNode = currentNode->next;
+   }
+
+   return currentNode;
  }
 
  int InsertNode(Movie *newNode)
