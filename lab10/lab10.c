@@ -37,9 +37,7 @@
 
  int main()
  {
-   printf("test1");
    Movie *movieRecords;
-   printf("test2");
    CreateRecords(movieRecords);
    UserMenu(movieRecords);
  }
@@ -121,7 +119,7 @@
    node5->imdbRating = 9.3;
 
    //Set head to first node
-   head = node1;
+   *head = node1;
 
    //Insert nodes into linked list
    InsertNode(head, node2);
