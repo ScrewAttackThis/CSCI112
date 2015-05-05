@@ -105,7 +105,7 @@
    Movie *result = ScanList(searchID);  //Conduct search and save result
 
    //Result has to be not null
-   if(result != NULL)
+   if(result != NULL && result->movieID == searchID)
    {
      //Successful search
      printf("\tSearch succesful.\n");
