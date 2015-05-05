@@ -85,9 +85,9 @@
  {
    char *searchTitle;
    printf("\tEnter a movie title to search the database:\n");
-   scanf("%s", &searchTitle);
+   scanf("%s", searchTitle);
 
-   Movie *result = ScanList(head, &searchTitle);
+   Movie *result = ScanList(head, searchTitle);
 
    if(result != NULL)
    {
