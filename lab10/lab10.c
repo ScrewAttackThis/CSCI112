@@ -102,9 +102,7 @@
    printf("\tEnter a movie ID to search the database:\n");
    scanf("%d", &searchID);  //Retrieve input from user for search
 
-   printf("test1\n");
    Movie *result = ScanList(searchID);  //Conduct search and save result
-   printf("test2\n");
    //Result has to be not null
    if(result != NULL)
    {
@@ -185,15 +183,14 @@
  //Search for an element in movies database
  Movie *ScanList(int searchMovieID)
  {
-   printf("test3\n");
    Movie *previousNode, *currentNode; //declare variables for previous and current nodes of list
    previousNode = head;           //Set previous to head node.
    currentNode = head->next;      //Set current to next node.
-   printf("test4\n");
+
    //Search until there are no more nodes or movieID is greater than the searchID
    while((currentNode != NULL) && (currentNode->movieID < searchMovieID))
    {
-     printf("test5\n");
+     printf("test node: %d\n", currentNode->movieID);
      previousNode = currentNode;        //Set previous to current node
      currentNode = currentNode->next;   //Set current to the next node
    }
