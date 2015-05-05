@@ -269,18 +269,18 @@
    scanf("%f", newMovieRating);
 
    newNode->movieID = newMovieID;
-   strcpy(newNode->title, newMovieTitle);
-   strcpy(newNode->director, newMovieDirector);
-   newNode->yearReleased = newMovieYear;
-   strcpy(newNode->starActor, newMovieActor);
-   newNode->imdbRating = newMovieRating;
+   //strcpy(newNode->title, newMovieTitle);
+   //strcpy(newNode->director, newMovieDirector);
+   //newNode->yearReleased = newMovieYear;
+   //strcpy(newNode->starActor, newMovieActor);
+   //newNode->imdbRating = newMovieRating;
 
-   if(InsertNode(head, newNode))
+   /*if(InsertNode(head, newNode))
    {
      printf("New movie succesfully added.");
    }
    else
    {
      printf("New movie failed to add.");
-   }
+   }*/
  }
