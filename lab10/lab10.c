@@ -38,7 +38,7 @@
  int main()
  {
    printf("test1");
-   Movie *movieRecords = (Movie *) malloc(sizeof(Movie));
+   Movie *movieRecords;
    printf("test2");
    CreateRecords(movieRecords);
    UserMenu(movieRecords);
@@ -191,7 +191,7 @@
      printf("\tDirected by: %s\n", currentNode->director);
      printf("\tReleased in: %d\n", currentNode->yearReleased);
      printf("\tStarring: %s\n", currentNode->starActor);
-     printf("\tIMDB rating: %.1f", currentNode->imdbRating);
+     printf("\tIMDB rating: %.1f\n", currentNode->imdbRating);
 
      currentNode = currentNode->next;
    }
