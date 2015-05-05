@@ -54,20 +54,24 @@
      printf("\t4. Delete record\n");
      printf("\t5. Exit\n");
 
+     scanf("%d", &input);
+
      switch(input)
      {
-       case 1:
-        PrintList(movies);
-        break;
-       case 2:
-        break;
-       case 3:
-        break;
-       case 4:
-        break;
-       case 5:
-        printf("Thank you for using the movie database program!");
-        break;
+        case 1:
+          PrintList(movies);
+          break;
+        case 2:
+          break;
+        case 3:
+          break;
+        case 4:
+          break;
+        case 5:
+          printf("Thank you for using the movie database program!");
+          break;
+        default:
+          printf("Invalid option.  Please enter 1-5.\n");
      }
 
    }while(input != 5);
