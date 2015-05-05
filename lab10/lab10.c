@@ -212,6 +212,14 @@
  {
    Movie *previousNode, *nextNode;  //Declare variables for previous and next nodes of list
    previousNode = ScanList(newNode->movieID); //Search for the previous node
+
+   //Establish new head
+   if(previousNode == head && newNode->movieID < previousNode->movieID)
+   {
+     head = newNode;
+     head->next = previousNode;
+     return 1;
+   }
    nextNode = previousNode->next; //Set the nextNode
 
    //Insert new node if the nextNode is null or the movie IDs don't match
@@ -235,7 +243,7 @@
 
    previousNode = ScanList(searchMovieID);
 
-   if(previousNode == head)
+   if(previousNode == head && head->movieID == searchMovieID)
    {
      deleteNode = previousNode;
      head = previousNode->next;
