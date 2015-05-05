@@ -12,15 +12,6 @@
  //Constants
  #define STRING_MAX 100
 
- //Function prototypes
- void UserMenu(Movie *);
- void CreateRecords(Movie *);
- void CreateRecords(Movie *);
- Movie ScanList(Movie *, int);
- void InsertNode(Movie *, Movie *);
- void DeleteNode(Movie *, int);
- void PrintList(Movie *);
-
  //Movie typedef
  typedef struct movieType Movie;
 
@@ -34,6 +25,15 @@
    float imdbRating;            //Stores the rating from IMDB
    Movie *next;                 //Pointer to next node of list
  }
+
+ //Function prototypes
+ void UserMenu(Movie *);
+ void CreateRecords(Movie *);
+ void CreateRecords(Movie *);
+ Movie ScanList(Movie *, int);
+ void InsertNode(Movie *, Movie *);
+ void DeleteNode(Movie *, int);
+ void PrintList(Movie *);
 
  int main()
  {
