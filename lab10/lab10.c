@@ -219,7 +219,16 @@
    Movie *previousNode, *deleteNode;
 
    previousNode = ScanList(head, searchMovieID);
-   deleteNode = previousNode->next;
+
+   if(previousNode == head)
+   {
+     deleteNode = previousNode;
+     head = previousNode->next;
+   }
+   else
+   {
+     deleteNode = previousNode->next;
+   }
 
    if((deleteNode != NULL) && (deleteNode->movieID == searchMovieID))
    {
