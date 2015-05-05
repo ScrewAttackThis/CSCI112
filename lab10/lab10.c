@@ -214,16 +214,16 @@
    }
  }
 
- int DeleteNode(Movie *head, int searchMovieID)
+ int DeleteNode(Movie **head, int searchMovieID)
  {
    Movie *previousNode, *deleteNode;
 
-   previousNode = ScanList(head, searchMovieID);
+   previousNode = ScanList(*head, searchMovieID);
 
    if(previousNode == head)
    {
      deleteNode = previousNode;
-     head = previousNode->next;
+     *head = previousNode->&next;
    }
    else
    {
