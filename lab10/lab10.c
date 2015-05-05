@@ -34,6 +34,7 @@
  void InsertNode(Movie *, Movie *);
  void DeleteNode(Movie *, char *);
  void PrintList(Movie *);
+ void PrintNode(Movie *);
  void Search(Movie *);
 
  int main()
@@ -82,11 +83,21 @@
  //Search records for user entered movie
  void Search(Movie *head)
  {
-   char * searchTitle;
+   char *searchTitle;
    printf("\tEnter a movie title to search the database:\n");
    scanf("%s", &searchTitle);
 
-   Movie *result = ScanList(head, searchTitle);
+   Movie *result = ScanList(head, "Pulp Fiction");
+
+   if(result != NULL)
+   {
+     printf("\tSearch succesful.\n");
+     PrintNode(result);
+   }
+   else
+   {
+     printf("\tSearch unsuccesful.  Movie not found.\n");
+   }
  }
 
  //Create 5 hardcoded movie records
@@ -195,12 +206,17 @@
 
    while(currentNode != NULL)
    {
-     printf("Movie: %s\n", currentNode->title);
-     printf("\tDirected by: %s\n", currentNode->director);
-     printf("\tReleased in: %d\n", currentNode->yearReleased);
-     printf("\tStarring: %s\n", currentNode->starActor);
-     printf("\tIMDB rating: %.1f\n", currentNode->imdbRating);
+     PrintNode(currentNode);
 
      currentNode = currentNode->next;
    }
+ }
+
+ void PrintNode(Movie *node)
+ {
+   printf("Movie: %s\n", node->title);
+   printf("\tDirected by: %s\n", node->director);
+   printf("\tReleased in: %d\n", node->yearReleased);
+   printf("\tStarring: %s\n", node->starActor);
+   printf("\tIMDB rating: %.1f\n", node->imdbRating);
  }
