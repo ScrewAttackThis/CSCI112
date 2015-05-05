@@ -34,10 +34,11 @@
  void InsertNode(Movie *, Movie *);
  void DeleteNode(Movie *, char *);
  void PrintList(Movie *);
+ void Search(Movie *);
 
  int main()
  {
-   Movie *movieRecords;
+   Movie *movieRecords = (Movie*) malloc(sizeof(Movie));
    CreateRecords(movieRecords);
    UserMenu(movieRecords);
  }
@@ -62,19 +63,30 @@
           PrintList(movies);
           break;
         case 2:
+          Search(movies);
           break;
         case 3:
           break;
         case 4:
           break;
         case 5:
-          printf("Thank you for using the movie database program!");
+          printf("Thank you for using the movie database program!\n");
           break;
         default:
           printf("Invalid option.  Please enter 1-5.\n");
      }
 
    }while(input != 5);
+ }
+
+ //Search records for user entered movie
+ void Search(Movie *head)
+ {
+   char * searchTitle;
+   printf("\tEnter a movie title to search the database:\n");
+   scanf("%s", &searchTitle);
+
+   Movie result = ScanList(head, searchTitle);
  }
 
  //Create 5 hardcoded movie records
@@ -119,7 +131,7 @@
    node5->imdbRating = 9.3;
 
    //Set head to first node
-   *head = node1;
+   head = node1;
 
    //Insert nodes into linked list
    InsertNode(head, node2);
