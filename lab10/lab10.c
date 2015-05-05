@@ -69,8 +69,9 @@
         printf("Thank you for using the movie database program!");
         break;
      }
-   }while(input != 5)
- };
+
+   }while(input != 5);
+ }
 
  //Create 5 hardcoded movie records
  void CreateRecords(Movie *head)
@@ -84,33 +85,33 @@
 
    //Initialize nodes with information
    strcpy(node1->title,"Pulp Fiction");
-   node1->yearRelease = 1994;
+   node1->yearReleased = 1994;
    strcpy(node1->director, "Quentin Tarantino");
    strcpy(node1->starActor, "Bruce Willis");
    node1->imdbRating = 8.9;
 
-   node2->title = "Saving Private Ryan";
-   node2->yearRelease = 1998;
-   node2->director = "Steven Spielberg";
-   node2->starActor = "Tom Hanks";
+   strcpy(node2->title, "Saving Private Ryan");
+   node2->yearReleased = 1998;
+   strcpy(node2->director, "Steven Spielberg");
+   strcpy(node2->starActor, "Tom Hanks");
    node2->imdbRating = 8.6;
 
-   node3->title = "The Matrix";
+   strcpy(node3->title, "The Matrix");
    node3->yearReleased = 1999;
-   node3->director = "The Wachowski Brotherss";
-   node3->starActor = "Keanu Reeves";
+   strcpy(node3->director, "The Wachowski Brotherss");
+   strcpy(node3->starActor, "Keanu Reeves");
    node3->imdbRating = 8.7;
 
-   node4->title = "The Godfather";
+   strcpy(node4->title, "The Godfather");
    node4->yearReleased = 1972;
-   node4->director = "Francis Ford Copola";
-   node4->starActor = "Al Pacino";
+   strcpy(node4->director, "Francis Ford Copola");
+   strcpy(node4->starActor, "Al Pacino");
    node4->imdbRating = 9.2;
 
-   node5->title = "The Shawshank Redemption";
-   node5->yearRelease = 1994;
-   node5->director = "Frank Darabont";
-   node5->starActor = "Tim Robbins";
+   strcpy(node5->title, "The Shawshank Redemption");
+   node5->yearReleased = 1994;
+   strcpy(node5->director, "Frank Darabont");
+   strcpy(node5->starActor, "Tim Robbins");
    node5->imdbRating = 9.3;
 
    //Insert nodes into linked list
