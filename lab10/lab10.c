@@ -111,7 +111,7 @@
      printf("\tSearch succesful.\n");
 
      //Print out the appropriate node
-     PrintNode(result->next); //Result is previous node
+     PrintNode(result);
    }
    else
    {
