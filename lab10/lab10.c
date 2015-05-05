@@ -37,8 +37,9 @@
 
  int main()
  {
+   printf("test1");
    Movie *movieRecords = (Movie *) malloc(sizeof(Movie));
-   printf("test");
+   printf("test2");
    CreateRecords(movieRecords);
    UserMenu(movieRecords);
  }
