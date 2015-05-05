@@ -220,7 +220,7 @@
 
    previousNode = ScanList(*head, searchMovieID);
 
-   if(previousNode == head)
+   if(previousNode == *head)
    {
      deleteNode = previousNode;
      *head = previousNode->next;
@@ -276,7 +276,7 @@
    printf("Enter the ID of the movie you wish to delete: \n");
    scanf("%d", &movieID);
 
-   if(DeleteNode(head, movieID))
+   if(DeleteNode(&head, movieID))
    {
      printf("\tThe movie with ID %d has been deleted.\n", movieID);
    }
