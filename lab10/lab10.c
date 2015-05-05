@@ -34,9 +34,9 @@
  int DeleteNode(int);
  void PrintList();
  void PrintNode(Movie *);
- void Search(Movie *);
- void InsertRecord(Movie *);
- void DeleteRecord(Movie *);
+ void Search();
+ void InsertRecord();
+ void DeleteRecord();
 
  //Globals (movies database)
  Movie *head;
@@ -96,7 +96,7 @@
  }
 
  //Search records for user entered movie
- void Search(Movie *head)
+ void Search()
  {
    int searchID;
    printf("\tEnter a movie ID to search the database:\n");
@@ -289,7 +289,7 @@
  }
 
  //Function for inserting a new record
- void InsertRecord(Movie *head)
+ void InsertRecord()
  {
    //Variables for storing user input
    int newMovieID;
