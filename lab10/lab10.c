@@ -27,28 +27,28 @@
  };
 
  //Function prototypes
- void UserMenu(Movie *a);
- void CreateRecords(Movie *);
- void CreateRecords(Movie *);
- Movie *ScanList(Movie *, int);
- int InsertNode(Movie *, Movie *);
- int DeleteNode(Movie **, int);
- void PrintList(Movie *);
+ void UserMenu();
+ void CreateRecords();
+ Movie *ScanList(int);
+ int InsertNode(Movie *);
+ int DeleteNode(int);
+ void PrintList();
  void PrintNode(Movie *);
  void Search(Movie *);
  void InsertRecord(Movie *);
  void DeleteRecord(Movie *);
 
+ //Globals (movies database)
+ Movie *head;
+
  int main()
  {
-   //Declare the movies database.  Could be a global but I don't like those.  I can just pass it to the functions that need it.
-   Movie *movieRecords = (Movie*) malloc(sizeof(Movie));
 
    //Instantiate 5 hardcoded records
-   CreateRecords(movieRecords);
+   CreateRecords();
 
    //Display menu and start program
-   UserMenu(movieRecords);
+   UserMenu();
  }
 
  void UserMenu(Movie *movies)
@@ -102,7 +102,7 @@
    printf("\tEnter a movie ID to search the database:\n");
    scanf("%d", &searchID);
 
-   Movie *result = ScanList(head, searchID);
+   Movie *result = ScanList(searchID);
 
    if(result != NULL && result->next != NULL)
    {
@@ -126,9 +126,10 @@
  }
 
  //Create 5 hardcoded movie records
- void CreateRecords(Movie *head)
+ void CreateRecords()
  {
    //Declare nodes and allocate memory
+   head = (Movie*) malloc(sizeof(Movie));
    Movie *node2 = (Movie*) malloc(sizeof(Movie));
    Movie *node3 = (Movie*) malloc(sizeof(Movie));
    Movie *node4 = (Movie*) malloc(sizeof(Movie));
@@ -171,14 +172,14 @@
    node5->imdbRating = 9.3;
 
    //Insert nodes into linked list
-   InsertNode(head, node2);
-   InsertNode(head, node3);
-   InsertNode(head, node4);
-   InsertNode(head, node5);
+   InsertNode(node2);
+   InsertNode(node3);
+   InsertNode(node4);
+   InsertNode(node5);
  }
 
  //Search for an element in movies database
- Movie *ScanList(Movie *head, int searchMovieID)
+ Movie *ScanList(int searchMovieID)
  {
    Movie *previousNode, *currentNode; //declare variables for previous and current nodes of list
    previousNode = head;           //Set previous to head node.
@@ -194,10 +195,10 @@
    return previousNode;
  }
 
- int InsertNode(Movie *head, Movie *newNode)
+ int InsertNode(Movie *newNode)
  {
    Movie *previousNode, *nextNode;  //Declare variables for previous and next nodes of list
-   previousNode = ScanList(head, newNode->movieID); //Search for the previous node
+   previousNode = ScanList(newNode->movieID); //Search for the previous node
    nextNode = previousNode->next; //Set the nextNode
 
    //Insert new node if the nextNode is null or the movie IDs don't match
@@ -214,17 +215,17 @@
    }
  }
 
- int DeleteNode(Movie **head, int searchMovieID)
+ int DeleteNode(int searchMovieID)
  {
    Movie *previousNode, *deleteNode;
 
    previousNode = ScanList(*head, searchMovieID);
 
-   if(previousNode == *head)
+   if(previousNode == head)
    {
      printf("TEST\n");
      deleteNode = previousNode;
-     *head = previousNode->next;
+     head = previousNode->next;
    }
    else
    {
@@ -244,7 +245,7 @@
  }
 
  //Function to print out entire database
- void PrintList(Movie *head)
+ void PrintList()
  {
    Movie *currentNode =  head; //Set the head as current node
 
@@ -271,13 +272,13 @@
  }
 
  //Function to delete a record from database
- void DeleteRecord(Movie *head)
+ void DeleteRecord()
  {
    int movieID;
    printf("Enter the ID of the movie you wish to delete: \n");
    scanf("%d", &movieID);
 
-   if(DeleteNode(&head, movieID))
+   if(DeleteNode(movieID))
    {
      printf("\tThe movie with ID %d has been deleted.\n", movieID);
    }
@@ -329,7 +330,7 @@
    strcpy(newNode->starActor, newMovieActor);
    newNode->imdbRating = newMovieRating;
 
-   if(InsertNode(head, newNode))
+   if(InsertNode(newNode))
    {
      //Succesful insertion
      printf("New movie succesfully added.\n");
