@@ -13,9 +13,13 @@
  #define STRING_MAX 100
 
  //Function prototypes
- void UserMenu(Movie);
- void CreateRecords(Movie);
-
+ void UserMenu(Movie *);
+ void CreateRecords(Movie *);
+ void CreateRecords(Movie *);
+ Movie ScanList(Movie *, int);
+ void InsertNode(Movie *, Movie *);
+ void DeleteNode(Movie *, int);
+ void PrintList(Movie *);
 
  //Movie typedef
  typedef struct movieType Movie;
