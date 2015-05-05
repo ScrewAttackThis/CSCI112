@@ -32,11 +32,12 @@
  void CreateRecords(Movie *);
  Movie *ScanList(Movie *, int);
  int InsertNode(Movie *, Movie *);
- void DeleteNode(Movie *, int);
+ int DeleteNode(Movie *, int);
  void PrintList(Movie *);
  void PrintNode(Movie *);
  void Search(Movie *);
  void InsertRecord(Movie *);
+ void DeleteRecord(Movie *);
 
  int main()
  {
