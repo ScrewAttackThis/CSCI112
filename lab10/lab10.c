@@ -142,7 +142,7 @@
      currentNode = currentNode->next;   //Set current to the next node
    }
 
-   return previous;
+   return previousNode;
  }
 
  void InsertNode(Movie *head, Movie *newNode)
