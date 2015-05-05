@@ -196,19 +196,20 @@
 
  int InsertNode(Movie *head, Movie *newNode)
  {
-   Movie *previousNode, *nextNode;  //Declare variables for previosu and next nodes of list
-   previousNode = ScanList(head, newNode->movieID);
-   nextNode = previousNode->next;
+   Movie *previousNode, *nextNode;  //Declare variables for previous and next nodes of list
+   previousNode = ScanList(head, newNode->movieID); //Search for the previous node
+   nextNode = previousNode->next; //Set the nextNode
 
+   //Insert new node if the nextNode is null or the movie IDs don't match
    if((nextNode == NULL) || (nextNode->movieID != newNode->movieID))
    {
-     previousNode->next = newNode;
-     newNode->next = nextNode;
+     previousNode->next = newNode;  //Set newNode in correct spot
+     newNode->next = nextNode;  //Replace nextNode in new spot
      return 1;
    }
    else
    {
-     free(newNode);
+     //free(newNode);
      return 0;
    }
  }
