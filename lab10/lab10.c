@@ -31,11 +31,12 @@
  void CreateRecords(Movie *);
  void CreateRecords(Movie *);
  Movie *ScanList(Movie *, int);
- void InsertNode(Movie *, Movie *);
+ int InsertNode(Movie *, Movie *);
  void DeleteNode(Movie *, int);
  void PrintList(Movie *);
  void PrintNode(Movie *);
  void Search(Movie *);
+ void InsertRecord(Movie *);
 
  int main()
  {
@@ -49,7 +50,7 @@
    int input = 0;
    do
    {
-     printf("Enter 1-5 to select one of the following options:\n");
+     printf("\nEnter 1-5 to select one of the following options:\n");
      printf("\t1. Print database\n");
      printf("\t2. Search database\n");
      printf("\t3. Insert new record\n");
@@ -67,6 +68,7 @@
           Search(movies);
           break;
         case 3:
+          InsertRecord(movies);
           break;
         case 4:
           break;
@@ -177,7 +179,7 @@
    return previousNode;
  }
 
- void InsertNode(Movie *head, Movie *newNode)
+ int InsertNode(Movie *head, Movie *newNode)
  {
    Movie *previousNode, *nextNode;  //Declare variables for previosu and next nodes of list
    previousNode = ScanList(head, newNode->movieID);
@@ -187,11 +189,12 @@
    {
      previousNode->next = newNode;
      newNode->next = nextNode;
+     return 1;
    }
    else
    {
-     printf("Movie already exists in database.");
      free(newNode);
+     return 0;
    }
  }
 
@@ -233,4 +236,51 @@
    printf("\tReleased in: %d\n", node->yearReleased);
    printf("\tStarring: %s\n", node->starActor);
    printf("\tIMDB rating: %.1f\n", node->imdbRating);
+ }
+
+ void InsertRecord(Movie *head)
+ {
+   int newMovieID;
+   char* newMovieTitle;
+   char* newMovieDirector;
+   int newMovieYear;
+   char* newMovieActor;
+   float newMovieRating;
+
+   Movie *newNode = (Movie*) malloc(sizeof(Movie));
+
+   printf("Follow the instructions to insert a new record.");
+   printf("\tType in a Movie ID: ")
+   scanf("%d", &newMovieID);
+
+   printf("\tType in a movie title: ");
+   scanf("%s", newMovieTitle);
+
+   printf("\tType in the director's name: ");
+   scanf("%s", newMovieDirector);
+
+   printf("\tType in year the movie was released: ");
+   scanf("%d", &newMovieYear);
+
+   printf("\tType in the star actor's name: ");
+   scanf("%s", newMovieActor);
+
+   printf("\tType in the IMDB rating: ");
+   scanf("%s", newMovieRating);
+
+   newNode->movieID = newMovieID;
+   strcpy(newNode->title, newMovieTitle);
+   strcpy(newNode->director, newMovieDirector);
+   newNode->yearReleased = newMovieYear;
+   strcpy(newNode->starActor, newMovieActor);
+   newNode->imdbRating = newMovieRating;
+
+   If(InsertNode(head, newNode))
+   {
+     printf("New movie succesfully added.");
+   }
+   else
+   {
+     printf("New movie failed to add.");
+   }
  }
