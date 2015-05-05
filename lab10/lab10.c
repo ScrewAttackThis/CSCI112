@@ -24,7 +24,7 @@
    char starActor[STRING_MAX];  //Stores the name of the star actor
    float imdbRating;            //Stores the rating from IMDB
    Movie *next;                 //Pointer to next node of list
- }
+ };
 
  //Function prototypes
  void UserMenu(Movie *a);
