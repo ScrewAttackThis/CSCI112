@@ -241,10 +241,10 @@
  void InsertRecord(Movie *head)
  {
    int newMovieID;
-   char* newMovieTitle[STRING_MAX];
-   char* newMovieDirector[STRING_MAX];
+   char newMovieTitle[STRING_MAX];
+   char newMovieDirector[STRING_MAX];
    int newMovieYear;
-   char* newMovieActor[STRING_MAX];
+   char newMovieActor[STRING_MAX];
    float newMovieRating;
 
    Movie *newNode = (Movie*) malloc(sizeof(Movie));
