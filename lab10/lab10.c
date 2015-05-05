@@ -238,6 +238,13 @@
    printf("\tIMDB rating: %.1f\n", node->imdbRating);
  }
 
+ void DeleteRecord(Movie *head)
+ {
+   int movieID;
+   printf("Enter the ID of the movie you wish to delete: \n");
+   scanf("%d", &movieID);
+ }
+
  void InsertRecord(Movie *head)
  {
    int newMovieID;
@@ -249,7 +256,7 @@
 
    Movie *newNode = (Movie*) malloc(sizeof(Movie));
 
-   printf("Follow the instructions to insert a new record.");
+   printf("Follow the instructions to insert a new record.\n");
    printf("\tType in a Movie ID: ");
    scanf("%d", &newMovieID);
 
@@ -277,10 +284,10 @@
 
    if(InsertNode(head, newNode))
    {
-     printf("New movie succesfully added.");
+     printf("New movie succesfully added.\n");
    }
    else
    {
-     printf("New movie failed to add.");
+     printf("New movie failed to add.\n");
    }
  }
