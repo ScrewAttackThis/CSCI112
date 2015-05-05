@@ -192,11 +192,11 @@
 
  Movie *SearchRecords(int searchMovieID)
  {
-   Movie *currentNode;
-   currentNode = head->next;
+   Movie *currentNode = head;
 
-   while(currentNode != NULL || currentNode->movieID == searchMovieID)
+   while(currentNode != NULL && currentNode->movieID != searchMovieID)
    {
+     printf("test node: %d", currentNode->movieID);
      currentNode = currentNode->next;
    }
 
