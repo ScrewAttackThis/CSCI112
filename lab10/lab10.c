@@ -28,15 +28,15 @@
 
  //Function prototypes
  void UserMenu();
+ void Search();
  void CreateRecords();
  Movie *ScanList(int);
  int InsertNode(Movie *);
  int DeleteNode(int);
  void PrintList();
  void PrintNode(Movie *);
- void Search();
- void InsertRecord();
  void DeleteRecord();
+ void InsertRecord();
 
  //Globals (movies database)
  Movie *head;
@@ -98,31 +98,33 @@
  //Search records for user entered movie
  void Search()
  {
-   int searchID;
+   int searchID;  //Stores user input for search
    printf("\tEnter a movie ID to search the database:\n");
-   scanf("%d", &searchID);
+   scanf("%d", &searchID);  //Retrieve input from user for search
 
-   Movie *result = ScanList(searchID);
+   Movie *result = ScanList(searchID);  //Conduct search and save result
 
-   if(result != NULL && result->next != NULL)
+   //Result has to be not null
+   if(result != NULL)
    {
+     //Successful search
      printf("\tSearch succesful.\n");
 
-     if(searchID == 0)
+     //Print out the appropriate node
+     if(result == head && head->movieID == searchID)
      {
-       PrintNode(result);
+       PrintNode(result); //Result is head and that's what was searched for
      }
      else
      {
-       PrintNode(result->next);
+       PrintNode(result->next); //Result is previous node
      }
    }
    else
    {
+     //Search failed to find results
      printf("\tSearch unsuccesful.  Movie not found.\n");
    }
-
-   free(result);
  }
 
  //Create 5 hardcoded movie records
@@ -223,7 +225,6 @@
 
    if(previousNode == head)
    {
-     printf("TEST\n");
      deleteNode = previousNode;
      head = previousNode->next;
    }
@@ -274,16 +275,19 @@
  //Function to delete a record from database
  void DeleteRecord()
  {
+   //Prompt user and accept input for what to search for.
    int movieID;
    printf("Enter the ID of the movie you wish to delete: \n");
    scanf("%d", &movieID);
 
    if(DeleteNode(movieID))
    {
+     //Alert user that a match was found.
      printf("\tThe movie with ID %d has been deleted.\n", movieID);
    }
    else
    {
+     //Alert the user that a match was not found 
      printf("\tThe movie was not found in the records.  Delete cancelled.\n");
    }
  }
