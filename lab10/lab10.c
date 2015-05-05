@@ -250,7 +250,7 @@
    Movie *newNode = (Movie*) malloc(sizeof(Movie));
 
    printf("Follow the instructions to insert a new record.");
-   printf("\tType in a Movie ID: ")
+   printf("\tType in a Movie ID: ");
    scanf("%d", &newMovieID);
 
    printf("\tType in a movie title: ");
@@ -275,7 +275,7 @@
    strcpy(newNode->starActor, newMovieActor);
    newNode->imdbRating = newMovieRating;
 
-   If(InsertNode(head, newNode))
+   if(InsertNode(head, newNode))
    {
      printf("New movie succesfully added.");
    }
