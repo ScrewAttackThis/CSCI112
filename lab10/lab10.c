@@ -27,7 +27,7 @@
  }
 
  //Function prototypes
- void UserMenu(Movie *);
+ void UserMenu(Movie *a);
  void CreateRecords(Movie *);
  void CreateRecords(Movie *);
  Movie ScanList(Movie *, int);
