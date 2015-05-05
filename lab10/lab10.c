@@ -222,6 +222,7 @@
 
    if(previousNode == *head)
    {
+     printf("TEST\n");
      deleteNode = previousNode;
      *head = previousNode->next;
    }
