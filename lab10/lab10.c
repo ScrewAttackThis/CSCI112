@@ -86,7 +86,7 @@
    printf("\tEnter a movie title to search the database:\n");
    scanf("%s", &searchTitle);
 
-   Movie result = ScanList(head, searchTitle);
+   Movie *result = ScanList(head, searchTitle);
  }
 
  //Create 5 hardcoded movie records
