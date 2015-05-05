@@ -266,7 +266,7 @@
    scanf("%s", newMovieActor);
 
    printf("\tType in the IMDB rating: ");
-   scanf("%s", newMovieRating);
+   scanf("%f", newMovieRating);
 
    newNode->movieID = newMovieID;
    strcpy(newNode->title, newMovieTitle);
