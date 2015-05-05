@@ -93,18 +93,17 @@
  void CreateRecords(Movie *head)
  {
    //Declare nodes and allocate memory
-   Movie *node1 = (Movie*) malloc(sizeof(Movie));
    Movie *node2 = (Movie*) malloc(sizeof(Movie));
    Movie *node3 = (Movie*) malloc(sizeof(Movie));
    Movie *node4 = (Movie*) malloc(sizeof(Movie));
    Movie *node5 = (Movie*) malloc(sizeof(Movie));
 
    //Initialize nodes with information
-   strcpy(node1->title,"Pulp Fiction");
-   node1->yearReleased = 1994;
-   strcpy(node1->director, "Quentin Tarantino");
-   strcpy(node1->starActor, "Bruce Willis");
-   node1->imdbRating = 8.9;
+   strcpy(head->title,"Pulp Fiction");
+   head->yearReleased = 1994;
+   strcpy(head->director, "Quentin Tarantino");
+   strcpy(head->starActor, "Bruce Willis");
+   head->imdbRating = 8.9;
 
    strcpy(node2->title, "Saving Private Ryan");
    node2->yearReleased = 1998;
@@ -129,9 +128,6 @@
    strcpy(node5->director, "Frank Darabont");
    strcpy(node5->starActor, "Tim Robbins");
    node5->imdbRating = 9.3;
-
-   //Set head to first node
-   head = node1;
 
    //Insert nodes into linked list
    InsertNode(head, node2);
