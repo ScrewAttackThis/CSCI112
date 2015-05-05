@@ -166,7 +166,7 @@
    previousNode = ScanList(head, movieTitle);
    deleteNode = previousNode->next;
 
-   if((deleteNode != NULL) && (strcmp(deleteNode->title, searchMovieID) == 0))
+   if((deleteNode != NULL) && (strcmp(deleteNode->title, movieTitle) == 0))
    {
      previousNode->next = deleteNode->next;
      free(deleteNode);
