@@ -38,6 +38,7 @@
  int main()
  {
    Movie *movieRecords = (Movie *) malloc(sizeof(Movie));
+   printf("test");
    CreateRecords(movieRecords);
    UserMenu(movieRecords);
  }
