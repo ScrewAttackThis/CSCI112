@@ -70,7 +70,7 @@
         break;
      }
    }while(input != 5)
- }
+ };
 
  //Create 5 hardcoded movie records
  void CreateRecords(Movie *head)
@@ -83,10 +83,10 @@
    Movie *node5 = (Movie*) malloc(sizeof(Movie));
 
    //Initialize nodes with information
-   node1->title = "Pulp Fiction";
+   strcpy(node1->title,"Pulp Fiction");
    node1->yearRelease = 1994;
-   node1->director = "Quentin Tarantino";
-   node1->starActor = "Bruce Willis";
+   strcpy(node1->director, "Quentin Tarantino");
+   strcpy(node1->starActor, "Bruce Willis");
    node1->imdbRating = 8.9;
 
    node2->title = "Saving Private Ryan";
