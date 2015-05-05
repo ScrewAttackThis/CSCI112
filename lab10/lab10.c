@@ -172,10 +172,10 @@
  void InsertNode(Movie *head, Movie *newNode)
  {
    Movie *previousNode, *nextNode;  //Declare variables for previosu and next nodes of list
-   previousNode = ScanList(head, newNode->title);
+   previousNode = ScanList(head, newNode->movieID);
    nextNode = previousNode->next;
 
-   if((nextNode == NULL) || (strcmp(nextNode->title, newNode->title) != 0))
+   if((nextNode == NULL) || (nextNode->movieID != newNode->movieID))
    {
      previousNode->next = newNode;
      newNode->next = nextNode;
