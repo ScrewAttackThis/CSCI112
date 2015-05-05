@@ -92,6 +92,7 @@
    if(result != NULL && result->next != NULL)
    {
      printf("\tSearch succesful.\n");
+
      if(searchID == 0)
      {
        PrintNode(result);
@@ -226,7 +227,7 @@
 
  void PrintNode(Movie *node)
  {
-   printf("Movie ID: %d\n", node->movieID);
+   printf("\nMovie ID: %d\n", node->movieID);
    printf("\tTitle: %s\n", node->title);
    printf("\tDirected by: %s\n", node->director);
    printf("\tReleased in: %d\n", node->yearReleased);
