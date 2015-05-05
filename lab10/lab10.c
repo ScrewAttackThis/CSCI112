@@ -111,15 +111,7 @@
      printf("\tSearch succesful.\n");
 
      //Print out the appropriate node
-     if(result == head && head->movieID == searchID)
-     {
-       printf("Test");
-       PrintNode(result); //Result is head and that's what was searched for
-     }
-     else
-     {
-       PrintNode(result->next); //Result is previous node
-     }
+     PrintNode(result->next); //Result is previous node
    }
    else
    {
@@ -203,7 +195,7 @@
    Movie *currentNode;
    currentNode = head->next;
 
-   while(currentNode != NULL)
+   while(currentNode != NULL || currentNode->movieID == searchMovieID)
    {
      currentNode = currentNode->next;
    }
