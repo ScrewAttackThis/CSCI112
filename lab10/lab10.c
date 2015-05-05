@@ -92,7 +92,7 @@
    if(result != NULL && result->next != NULL)
    {
      printf("\tSearch succesful.\n");
-     PrintNode(result->next);
+     PrintNode(result);
    }
    else
    {
@@ -219,7 +219,8 @@
 
  void PrintNode(Movie *node)
  {
-   printf("Movie: %s\n", node->title);
+   printf("Movie ID: %d\n", node->movieID);
+   printf("\tTitle: %s\n", node->title);
    printf("\tDirected by: %s\n", node->director);
    printf("\tReleased in: %d\n", node->yearReleased);
    printf("\tStarring: %s\n", node->starActor);
