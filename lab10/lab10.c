@@ -40,16 +40,25 @@
 
  int main()
  {
+   //Declare the movies database.  Could be a global but I don't like those.  I can just pass it to the functions that need it.
    Movie *movieRecords = (Movie*) malloc(sizeof(Movie));
+
+   //Instantiate 5 hardcoded records
    CreateRecords(movieRecords);
+
+   //Display menu and start program
    UserMenu(movieRecords);
  }
 
  void UserMenu(Movie *movies)
  {
+   //Variable to store user input
    int input = 0;
+
+   //Menu loop
    do
    {
+     //User menu options
      printf("\nEnter 1-5 to select one of the following options:\n");
      printf("\t1. Print database\n");
      printf("\t2. Search database\n");
@@ -57,29 +66,32 @@
      printf("\t4. Delete record\n");
      printf("\t5. Exit\n");
 
+     //Get user input
      scanf("%d", &input);
 
+     //Switch control on user input
      switch(input)
      {
-        case 1:
+        case 1: //Print the database records
           PrintList(movies);
           break;
-        case 2:
+        case 2: //Search for a specific movie
           Search(movies);
           break;
-        case 3:
+        case 3: //Insert a new record
           InsertRecord(movies);
           break;
-        case 4:
+        case 4: //Delete a record
+          DeleteRecord(movies);
           break;
-        case 5:
+        case 5: //Exit the program
           printf("Thank you for using the movie database program!\n");
           break;
-        default:
+        default:  //User didn't select a valid option
           printf("Invalid option.  Please enter 1-5.\n");
      }
 
-   }while(input != 5);
+   }while(input != 5); //Exit the loop (and program) if user selects the option
  }
 
  //Search records for user entered movie
@@ -108,6 +120,8 @@
    {
      printf("\tSearch unsuccesful.  Movie not found.\n");
    }
+
+   free(result);
  }
 
  //Create 5 hardcoded movie records
@@ -198,7 +212,7 @@
    }
  }
 
- void DeleteNode(Movie *head, int searchMovieID)
+ int DeleteNode(Movie *head, int searchMovieID)
  {
    Movie *previousNode, *deleteNode;
 
@@ -209,44 +223,62 @@
    {
      previousNode->next = deleteNode->next;
      free(deleteNode);
+     return 1;
    }
    else
    {
-     printf("Movie not found in database.");
+     return 0;
    }
  }
 
+ //Function to print out entire database
  void PrintList(Movie *head)
  {
-   Movie *currentNode =  head;
+   Movie *currentNode =  head; //Set the head as current node
 
+   //Iterate through each node
    while(currentNode != NULL)
    {
+     //Print node
      PrintNode(currentNode);
 
+     //Set the current node to the next node, go through loop again
      currentNode = currentNode->next;
    }
  }
 
+ //Helper function for printing out individual nodes
  void PrintNode(Movie *node)
  {
-   printf("\nMovie ID: %d\n", node->movieID);
-   printf("\tTitle: %s\n", node->title);
-   printf("\tDirected by: %s\n", node->director);
-   printf("\tReleased in: %d\n", node->yearReleased);
-   printf("\tStarring: %s\n", node->starActor);
-   printf("\tIMDB rating: %.1f\n", node->imdbRating);
+   printf("\nMovie ID: %d\n", node->movieID);           //Prints movie's ID
+   printf("\tTitle: %s\n", node->title);                //Prints movie's title
+   printf("\tDirected by: %s\n", node->director);       //Prints movie's director
+   printf("\tReleased in: %d\n", node->yearReleased);   //Prints movie's release date
+   printf("\tStarring: %s\n", node->starActor);         //Prints movie's star
+   printf("\tIMDB rating: %.1f\n", node->imdbRating);   //Prints movie's rating
  }
 
+ //Function to delete a record from database
  void DeleteRecord(Movie *head)
  {
    int movieID;
    printf("Enter the ID of the movie you wish to delete: \n");
    scanf("%d", &movieID);
+
+   if(DeleteNode(head, movieID))
+   {
+     printf("\tThe movie with ID %d has been deleted.\n", movieID);
+   }
+   else
+   {
+     printf("\tThe movie was not found in the records.  Delete cancelled.\n");
+   }
  }
 
+ //Function for inserting a new record
  void InsertRecord(Movie *head)
  {
+   //Variables for storing user input
    int newMovieID;
    char newMovieTitle[STRING_MAX];
    char newMovieDirector[STRING_MAX];
@@ -254,8 +286,7 @@
    char newMovieActor[STRING_MAX];
    float newMovieRating;
 
-   Movie *newNode = (Movie*) malloc(sizeof(Movie));
-
+   //User prompts
    printf("Follow the instructions to insert a new record.\n");
    printf("\tType in a Movie ID: ");
    scanf("%d", &newMovieID);
@@ -275,6 +306,10 @@
    printf("\tType in the IMDB rating: ");
    scanf("%f", &newMovieRating);
 
+   //New node being inserted
+   Movie *newNode = (Movie*) malloc(sizeof(Movie));
+
+   //Set values for new node to be inserted
    newNode->movieID = newMovieID;
    strcpy(newNode->title, newMovieTitle);
    strcpy(newNode->director, newMovieDirector);
@@ -284,10 +319,12 @@
 
    if(InsertNode(head, newNode))
    {
+     //Succesful insertion
      printf("New movie succesfully added.\n");
    }
    else
    {
+     //Unsuccesful insertion.
      printf("New movie failed to add.\n");
    }
  }
