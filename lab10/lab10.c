@@ -120,8 +120,10 @@
    strcpy(node5->starActor, "Tim Robbins");
    node5->imdbRating = 9.3;
 
+   //Set head to first node
+   head = node1;
+
    //Insert nodes into linked list
-   InsertNode(head, node1);
    InsertNode(head, node2);
    InsertNode(head, node3);
    InsertNode(head, node4);
