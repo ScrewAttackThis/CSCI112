@@ -223,7 +223,7 @@
    if(previousNode == head)
    {
      deleteNode = previousNode;
-     *head = previousNode->&next;
+     *head = previousNode->next;
    }
    else
    {
