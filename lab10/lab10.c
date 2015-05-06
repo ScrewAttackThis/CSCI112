@@ -221,10 +221,6 @@
      head->next = previousNode;
      return 1;
    }
-   else
-   {
-     return 0;
-   }
 
    nextNode = previousNode->next; //Set the nextNode
 
