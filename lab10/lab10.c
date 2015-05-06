@@ -214,12 +214,18 @@
    previousNode = ScanList(newNode->movieID); //Search for the previous node
 
    //Establish new head
+   //ScanList returned the head as previousNode
    if(previousNode == head && newNode->movieID < previousNode->movieID)
    {
      head = newNode;
      head->next = previousNode;
      return 1;
    }
+   else
+   {
+     return 0;
+   }
+
    nextNode = previousNode->next; //Set the nextNode
 
    //Insert new node if the nextNode is null or the movie IDs don't match
